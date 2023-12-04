@@ -10,7 +10,6 @@ export class RoomsBookingComponent implements OnInit{
   constructor(private route: ActivatedRoute) { }
   ngOnInit(): void {
     console.log(this.id);
-    
   }
   
   id: number = this.route.snapshot.params['id']; 

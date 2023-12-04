@@ -12,3 +12,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ModuleaRoutingModule { }
+
+//create module for each compoent instead of app.module.ts
+//single responsibility principle
+//lazy loading

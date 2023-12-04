@@ -6,6 +6,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { RoomAddComponent } from './rooms/room-add/room-add.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path:'rooms/:id',component:RoomsBookingComponent,canActivate:[AuthGuard]
   },
+  {
+    path:'rooms/add/addRoom',component:RoomAddComponent ,canActivate:[AuthGuard]
+  },
+
+  //lazy loading
   { path: 'a', loadChildren: () => import('./modulea/modulea.module').then(m => m.ModuleaModule) },
   { path: 'b', loadChildren: () => import('./moduleb/moduleb.module').then(m => m.ModulebModule) },
   {

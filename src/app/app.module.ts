@@ -27,6 +27,7 @@ import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.compo
 import { AuthService } from './service/auth.service';
 import { NewsService } from './service/news.service';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { RoomAddComponent } from './rooms/room-add/room-add.component';
 
 
 @NgModule({
@@ -42,8 +43,9 @@ import { AuthGuard } from './shared/auth/auth.guard';
     AppNavComponent,
     NotFoundComponent,
     RoomsBookingComponent,
-    RoomsBookingComponent
-],
+    RoomsBookingComponent,
+    RoomAddComponent,
+  ],
   
   imports: [
     BrowserModule,

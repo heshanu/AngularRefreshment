@@ -1,0 +1,50 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <label for="">Firstname</label>
+        <input #name="ngModel" [ngClass]="{
+                  'is-invalid':
+                    name.invalid && (name.invalid || name.touched),
+                  'is-valid':
+                    name.valid && (name.invalid || name.touched)
+                }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.name"
+            placeholder="name" name="firstName" ngModel />
+        <div class="invalid-feedback">
+            <p *ngIf="name.errors">Please fill name!</p>
+        </div>
+    </div>
+
+    <div class="form-group"> 
+        <label for="">toISO</label>
+        <input #isOn="ngModel" [ngClass]="{
+                      'is-invalid':
+                        isOn.invalid && (isOn.invalid || isOn.touched),
+                      'is-valid':
+                        isOn.valid && (isOn.invalid || isOn.touched)
+                    }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.isOn"
+            placeholder="isOn" name="isOn" ngModel />
+        <div class="invalid-feedback">
+            <p *ngIf="isOn.errors">Please fill isOn</p>
+        </div>
+    </div>
+
+    <div class="form-group">  
+        <label for="">Temparature</label>
+        <input #temperature="ngModel" [ngClass]="{
+                          'is-invalid':
+                             temperature.invalid && ( temperature.invalid ||  temperature.touched),
+                          'is-valid':
+                             temperature.valid && ( temperature.invalid ||  temperature.touched)
+                        }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.temperature"
+            placeholder=" temperature" name=" temperature" ngModel />
+        <div class="invalid-feedback">
+            <p *ngIf="temperature.errors">Please fill temperature</p>
+        </div>
+    </div>
+
+    <button [disabled]="f.invalid" class="btn btn-primary" type="submit" value="submit">
+        Submit
+    </button>
+
+    <p *ngIf="!f.invalid">{{ f.value | json }}</p>
+
+</form>
