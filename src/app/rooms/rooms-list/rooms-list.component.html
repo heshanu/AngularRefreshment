@@ -1,0 +1,9 @@
+<p>rooms-list works!</p>
+
+<div *ngFor="let i of roomsList">
+    <li>{{i.id}}</li>
+    <li>{{i.name}}</li>
+    <li>{{i.isOn}}</li>
+    <li>{{i.temperature}}</li>
+    <button (click)="selectRoom(i)" [routerLink]="['/rooms',i.id]">Select Room</button>
+</div>
