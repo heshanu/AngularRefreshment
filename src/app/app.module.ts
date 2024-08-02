@@ -30,6 +30,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './materilModule';
+import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MaterialModule } from './materilModule';
     RoomsBookingComponent,
     RoomAddComponent,
     LoginComponent,
+    SearchbarComponent,
   ],
   
   imports: [

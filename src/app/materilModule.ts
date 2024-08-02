@@ -9,6 +9,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatTableModule } from "@angular/material/table";
 import { MatSelectModule } from "@angular/material/select";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 @NgModule({
     imports: [
@@ -22,6 +24,7 @@ import { MatSelectModule } from "@angular/material/select";
         MatSlideToggleModule,
         MatSelectModule,
         MatOptionModule,
+        MatAutocompleteModule 
     ],
     exports: [
         MatToolbarModule,
@@ -34,6 +37,7 @@ import { MatSelectModule } from "@angular/material/select";
         MatSlideToggleModule,
         MatSelectModule,
         MatOptionModule,
+        MatAutocompleteModule 
     ]
 })
 export class MaterialModule { }
