@@ -31,7 +31,8 @@ import { RoomAddComponent } from './rooms/room-add/room-add.component';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './materilModule';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
-
+import { CaroselComponent } from './shared/carosel/carosel.component';
+//import { PrimeModuleNgModule } from './primeNg.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
     RoomAddComponent,
     LoginComponent,
     SearchbarComponent,
+    CaroselComponent
   ],
   
   imports: [
@@ -57,7 +59,11 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
     FormsModule,ReactiveFormsModule,MatSlideToggleModule,
     HttpClientModule, BrowserAnimationsModule,
     MatToolbarModule, MatButtonModule, 
-    MatSidenavModule, MatIconModule, MatListModule,MaterialModule],
+    MatSidenavModule, MatIconModule,
+    MatListModule,MaterialModule,
+   // PrimeModuleNgModule,
+  
+    ],
   
   providers: [EvenPipePipe, Usd2lkrsPipe,AuthService,NewsService,AuthGuard,
   
