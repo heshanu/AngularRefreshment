@@ -28,7 +28,8 @@ import { AuthService } from './service/auth.service';
 import { NewsService } from './service/news.service';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
-
+import { LoginComponent } from './login/login.component';
+import { MaterialModule } from './materilModule';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,16 @@ import { RoomAddComponent } from './rooms/room-add/room-add.component';
     RoomsBookingComponent,
     RoomsBookingComponent,
     RoomAddComponent,
+    LoginComponent,
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,ReactiveFormsModule,MatSlideToggleModule,HttpClientModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,],
+    FormsModule,ReactiveFormsModule,MatSlideToggleModule,
+    HttpClientModule, BrowserAnimationsModule,
+    MatToolbarModule, MatButtonModule, 
+    MatSidenavModule, MatIconModule, MatListModule,MaterialModule],
   
   providers: [EvenPipePipe, Usd2lkrsPipe,AuthService,NewsService,AuthGuard,
   

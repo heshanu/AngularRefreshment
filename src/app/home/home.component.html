@@ -6,7 +6,7 @@
 <div [ngSwitch]="role">
     <div [ngClass]="role=='admin'?'success':'error'" *ngSwitchCase="'user'"><h2>User</h2></div>
     <div [ngClass]="role=='admin'?'success':'error'" *ngSwitchCase="'admin'"><h2>Admin</h2></div>
-    <div [ngStyle]="{'font-color':role == 'fucker' ? '' : '10px' }">Fucker</div>
+    <div [ngStyle]="{'font-color':role == 'fucker' ? '' : '10px' }">customer</div>
     <div [ngStyle]="" *ngSwitchDefault><h2>Guest</h2></div>
 </div>
 
