@@ -1,9 +1,10 @@
 <mat-card appearance="outlined" *ngFor="let i of roomsList">
     <mat-card-header>
-      <mat-card-title>{{i.name}}</mat-card-title>
-      <mat-card-subtitle>Availablitity-{{ i.isOn ? 'YES' : 'NO' }}</mat-card-subtitle>
-      <mat-card-subtitle>{{i.temperature}}</mat-card-subtitle>
+      <mat-card-title>{{i.title}}</mat-card-title>
     </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image src="{{i.url}}" alt="{{i.title}}">
+    </mat-card-content>
     <mat-card-actions>
       <button (click)="selectRoom(i)" [routerLink]="['/rooms',i.id]" mat-raised-button>Select Room</button>
     </mat-card-actions>
