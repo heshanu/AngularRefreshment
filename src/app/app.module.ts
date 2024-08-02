@@ -28,6 +28,7 @@ import { AuthService } from './service/auth.service';
 import { NewsService } from './service/news.service';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { RoomAddComponent } from './rooms/room-add/room-add.component';
     RoomsBookingComponent,
     RoomsBookingComponent,
     RoomAddComponent,
+    LoginComponent,
   ],
   
   imports: [
