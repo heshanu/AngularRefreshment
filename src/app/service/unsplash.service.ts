@@ -6,7 +6,6 @@ import { createApi } from 'unsplash-js';
   providedIn: 'root'
 })
 export class UnsplashService {
-
   private unsplash;
 
   constructor() {

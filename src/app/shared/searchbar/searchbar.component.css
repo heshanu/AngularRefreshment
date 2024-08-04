@@ -12,3 +12,17 @@
 .example-full-width {
   width: 100%;
 }
+
+.photo-item {
+  margin: 10px;
+  display: inline-block;
+}
+
+.photo-item img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  border-color: white;
+  border-width: 5px;
+  display:inline-block
+}
