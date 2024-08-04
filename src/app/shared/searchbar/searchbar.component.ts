@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { User } from '../interfaces/userInterface';
+import { UnsplashService } from '../../service/unsplash.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -10,12 +11,15 @@ import { User } from '../interfaces/userInterface';
 })
 export class SearchbarComponent implements OnInit {
   
-  @Input() searchLabelOptionList!:User[];
+  @Input() searchLabelOptionList!:any[];
+  searchList:any[]=[];
 
-  myControl = new FormControl<string | User>('');
+  constructor(private unPleshService:UnsplashService){}
+  myControl = new FormControl<string | User|any>('');
 
   filteredOptions!: Observable<User[]|any[]>;
   options:User[]=[];
+
   ngOnInit() {
     this.options=this.searchLabelOptionList;
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -25,6 +29,7 @@ export class SearchbarComponent implements OnInit {
         return name ? this._filter(name as string) : this.options.slice();
       }),
     );
+    this.fetchPhotos('Luxury Hotels');
   }
 
   displayFn(user: User): string {
@@ -35,4 +40,23 @@ export class SearchbarComponent implements OnInit {
     const filterValue = name.toLowerCase();
     return this.options.filter((option:any) => option.name.toLowerCase().includes(filterValue));
   }
+
+  onSubmit() {
+    console.log('Form value:', this.myControl.value);
+    this.fetchPhotos(this.myControl.value);
+    
+  }
+
+  fetchPhotos(query: string) {
+    this.unPleshService.searchPhotos(query).subscribe(
+      response => {
+        this.searchList= response.response.results;
+      },
+      error => {
+        console.error('Error fetching photos:', error);
+      }
+    );
+  }
 }
+
+export const sharedVSearchListLength = SearchbarComponent.prototype.searchList;

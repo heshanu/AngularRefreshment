@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomService } from '../../service/room.service';
-import { RoomInterface } from '../interfaces/roomInterface';
-import { PexelService } from '../../service/pexel.service';
 import { UnsplashService } from '../../service/unsplash.service';
+import { sharedVSearchListLength } from '../searchbar/searchbar.component';
 
 @Component({
   selector: 'app-carosel',
@@ -11,14 +9,12 @@ import { UnsplashService } from '../../service/unsplash.service';
 })
 export class CaroselComponent implements OnInit {
   photos: any[] = [];
-  currentIndex = 0;
-  interval: any;
-
+  ph:number=0;
   constructor(private unsplashService: UnsplashService) {}
 
   ngOnInit() {
     this.fetchPhotos('Luxury Hotels');
-  
+    this.ph=sharedVSearchListLength.length;
   }
 
   fetchPhotos(query: string) {
