@@ -37,7 +37,7 @@ export class CaroselComponent implements OnInit {
   startAutoSlide(): void {
     this.interval = setInterval(() => {
       this.getNext();
-    }, 1000); 
+    }, 5000); 
   }
 
   stopAutoSlide(): void {
