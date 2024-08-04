@@ -66,3 +66,18 @@
 .carousel-control-next-icon {
   background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="currentColor" d="M2.75 0l-1.5 1.5-2.5-2.5 2.5-2.5 2.5 2.5 2.5 2.5-2.5 2.5 1.5-1.5-1.5z"/></svg>');
 }
+
+/* src/app/app.component.css */
+.photo-item {
+  margin: 10px;
+  display: inline-block;
+}
+
+.photo-item img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  border-color: white;
+  border-width: 5px;
+  display:inline-block
+}
