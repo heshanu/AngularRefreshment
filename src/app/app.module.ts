@@ -32,7 +32,10 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './materilModule';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { CaroselComponent } from './shared/carosel/carosel.component';
+import { NgIconModule } from './ngIcons.module';
 //import { PrimeModuleNgModule } from './primeNg.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +65,7 @@ import { CaroselComponent } from './shared/carosel/carosel.component';
     MatSidenavModule, MatIconModule,
     MatListModule,MaterialModule,
    // PrimeModuleNgModule,
-  
+   NgIconModule,
     ],
   
   providers: [EvenPipePipe, Usd2lkrsPipe,AuthService,NewsService,AuthGuard,
