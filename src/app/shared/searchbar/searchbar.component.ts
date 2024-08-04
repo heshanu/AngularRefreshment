@@ -30,6 +30,7 @@ export class SearchbarComponent implements OnInit {
       }),
     );
     this.fetchPhotos('Luxury Hotels');
+    
   }
 
   displayFn(user: User): string {
@@ -42,9 +43,8 @@ export class SearchbarComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Form value:', this.myControl.value);
-    this.fetchPhotos(this.myControl.value);
-    
+    console.log('Form value:', this.myControl.value+" "+"hotels");
+    this.fetchPhotos(this.myControl.value+" "+"hotels");
   }
 
   fetchPhotos(query: string) {
@@ -55,8 +55,7 @@ export class SearchbarComponent implements OnInit {
       error => {
         console.error('Error fetching photos:', error);
       }
-    );
-  }
+    )};
 }
 
 export const sharedVSearchListLength = SearchbarComponent.prototype.searchList;
