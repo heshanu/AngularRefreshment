@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../../service/room.service';
 import { RoomInterface } from '../interfaces/roomInterface';
 import { PexelService } from '../../service/pexel.service';
+import { UnsplashService } from '../../service/unsplash.service';
 
 @Component({
   selector: 'app-carosel',
@@ -9,26 +10,21 @@ import { PexelService } from '../../service/pexel.service';
   styleUrls: ['./carosel.component.css']
 })
 export class CaroselComponent implements OnInit {
-  slides: RoomInterface[] = [];
-
-  currentIndex: number = 0;
+  photos: any[] = [];
+  currentIndex = 0;
   interval: any;
 
-  constructor(private pexelsService: PexelService ) { }
+  constructor(private unsplashService: UnsplashService) {}
 
-  ngOnInit(): void {
-      //this.setPhotos();
-      this.startAutoSlide();
-      this.fetchPhotos('Sri Lanka');
-      console.log(this.photos);   
+  ngOnInit() {
+    this.fetchPhotos('Luxury Hotels');
+  
   }
 
-  photos: any[] = [];
-
   fetchPhotos(query: string) {
-    this.pexelsService.searchPhotos(query).subscribe(
-      (photos:any) => {
-        this.photos = photos.photos;
+    this.unsplashService.searchPhotos(query).subscribe(
+      response => {
+        this.photos = response.response.results;
       },
       error => {
         console.error('Error fetching photos:', error);
@@ -36,21 +32,5 @@ export class CaroselComponent implements OnInit {
     );
   }
 
-  getPrev(): void {
-    this.currentIndex = (this.currentIndex - 1 + this.slides.length) % this.slides.length;
-  }
-
-  getNext(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-  }
-
-  startAutoSlide(): void {
-    this.interval = setInterval(() => {
-      this.getNext();
-    }, 5000); 
-  }
-
-  stopAutoSlide(): void {
-    clearInterval(this.interval);
-  }
+  
 }

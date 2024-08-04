@@ -1,17 +1,8 @@
-<!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img [src]="slides[currentIndex].url" class="d-block w-100">
-    </div>
-  </div>
-</div> -->
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" role="listbox">
-    <div class="carousel-item active">
-      <img [src]="photos[currentIndex].url" class="d-block w-100"> 
-      {{photos[currentIndex].url}}
-    </div>
+<div *ngIf="photos.length > 0">
+  <div *ngFor="let photo of photos" class="photo-item">
+    <img [src]="photo.urls.regular" alt="Photo">
   </div>
-</div> 
+</div>
+
 
