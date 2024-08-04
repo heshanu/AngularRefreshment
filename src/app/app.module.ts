@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { ContainerComponent } from './container/container.component';
@@ -32,47 +32,40 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './materilModule';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { CaroselComponent } from './shared/carosel/carosel.component';
+import { NgIconModule } from './ngIcons.module';
 //import { PrimeModuleNgModule } from './primeNg.module';
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    RoomsComponent,
-    RoomsListComponent,
-    ContainerComponent,
-    EmployeeComponent,
-    EvenPipePipe,
-    Usd2lkrsPipe,
-    AppNavComponent,
-    NotFoundComponent,
-    RoomsBookingComponent,
-    RoomsBookingComponent,
-    RoomAddComponent,
-    LoginComponent,
-    SearchbarComponent,
-    CaroselComponent
-  ],
-  
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,ReactiveFormsModule,MatSlideToggleModule,
-    HttpClientModule, BrowserAnimationsModule,
-    MatToolbarModule, MatButtonModule, 
-    MatSidenavModule, MatIconModule,
-    MatListModule,MaterialModule,
-   // PrimeModuleNgModule,
-  
+
+
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        RoomsComponent,
+        RoomsListComponent,
+        ContainerComponent,
+        EmployeeComponent,
+        EvenPipePipe,
+        Usd2lkrsPipe,
+        AppNavComponent,
+        NotFoundComponent,
+        RoomsBookingComponent,
+        RoomsBookingComponent,
+        RoomAddComponent,
+        LoginComponent,
+        SearchbarComponent,
+        CaroselComponent
     ],
-  
-  providers: [EvenPipePipe, Usd2lkrsPipe,AuthService,NewsService,AuthGuard,
-  
-    {
-      provide: testInterceptor,
-      useValue: HTTP_INTERCEPTORS,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule, ReactiveFormsModule, MatSlideToggleModule,
+        BrowserAnimationsModule,
+        MatToolbarModule, MatButtonModule,
+        MatSidenavModule, MatIconModule,
+        MatListModule, MaterialModule,
+        // PrimeModuleNgModule,
+        NgIconModule], providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
+        {
+            provide: testInterceptor,
+            useValue: HTTP_INTERCEPTORS,
+            multi: true
+        }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

@@ -3,7 +3,7 @@ export interface RoomInterface {
         albumId:number,
         id:number,
         title:string,
-        url:string,
+        url?:string,
         thumbnailUrl:string
       
 }
