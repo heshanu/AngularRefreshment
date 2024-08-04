@@ -45,6 +45,7 @@ export class SearchbarComponent implements OnInit {
   onSubmit() {
     console.log('Form value:', this.myControl.value+" "+"hotels");
     this.fetchPhotos(this.myControl.value+" "+"hotels");
+    //localStorage.setItem('locationSearched',this.searchList);
   }
 
   fetchPhotos(query: string) {
