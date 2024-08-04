@@ -11,11 +11,13 @@ export class CaroselComponent implements OnInit {
   slides: RoomInterface[] = [];
 
   currentIndex: number = 0;
+  interval: any;
 
   constructor(private roomService:RoomService) { }
 
   ngOnInit(): void {
       this.setPhotos();
+      this.startAutoSlide();
   }
 
   setPhotos(){
@@ -30,5 +32,15 @@ export class CaroselComponent implements OnInit {
 
   getNext(): void {
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+  }
+
+  startAutoSlide(): void {
+    this.interval = setInterval(() => {
+      this.getNext();
+    }, 1000); 
+  }
+
+  stopAutoSlide(): void {
+    clearInterval(this.interval);
   }
 }
