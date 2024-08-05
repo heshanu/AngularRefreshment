@@ -34,7 +34,9 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
       .subscribe((data: EmployeeInterface[]) => {
         this.employeeList = data;
         this.dataSource.data = this.employeeList;
-        
+        console.log('Fetched data:', this.employeeList); // Debugging line
+      }, error => {
+        console.error('Error fetching employees:', error); // Debugging line
       });
   }
 }
