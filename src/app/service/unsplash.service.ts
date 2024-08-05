@@ -13,7 +13,7 @@ export class UnsplashService {
       accessKey: 'MKBag_smWNjRfuWukYN17wQFQbtMKGfENg5TLgv7jaE' 
     });
   }
-
+  
   searchPhotos(query: string, perPage: number = 10): Observable<any> {
     return from(this.unsplash.search.getPhotos({ query, perPage }));
   }
