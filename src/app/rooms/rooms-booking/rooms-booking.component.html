@@ -1,7 +1,7 @@
-<div *ngIf="roomDetail" class="room-detail-container">
-    <div class="room-info">
-        <div class="room-title">{{roomDetail.title|uppercase}}</div>
-    </div>
-    <img [src]="roomDetail.thumbnailUrl" class="room-image" alt="Room Thumbnail"/>
-    <button (click)="bookRoom(roomDetail.id)" class="book-button">Book Now</button>
+<div *ngIf="roomDetail">
+    <div>{{ roomDetail.albumId }}</div>
+    <div>{{ roomDetail.title }}</div>
+    <img [src]="roomDetail.thumbnailUrl" alt="Room Thumbnail"/>
+    <button (click)="bookRoom(roomDetail.id)" (click)="openDialog('200ms', '200ms')">Book Now</button>
 </div>
+  

@@ -23,7 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
+import { RoomsBookingComponent} from './rooms/rooms-booking/rooms-booking.component';
 import { AuthService } from './service/auth.service';
 import { NewsService } from './service/news.service';
 import { AuthGuard } from './shared/auth/auth.guard';
@@ -52,17 +52,19 @@ import { NgIconModule } from './ngIcons.module';
         RoomAddComponent,
         LoginComponent,
         SearchbarComponent,
-        CaroselComponent
+        CaroselComponent,
+        
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule,
-        FormsModule, ReactiveFormsModule, MatSlideToggleModule,
-        BrowserAnimationsModule,
-        MatToolbarModule, MatButtonModule,
-        MatSidenavModule, MatIconModule,
-        MatListModule, MaterialModule,
-        // PrimeModuleNgModule,
-        NgIconModule], providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
+    AppRoutingModule,
+    FormsModule, ReactiveFormsModule, MatSlideToggleModule,
+    BrowserAnimationsModule,
+    MatToolbarModule, MatButtonModule,
+    MatSidenavModule, MatIconModule,
+    MatListModule, MaterialModule,
+    // PrimeModuleNgModule,
+    NgIconModule],
+    providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
         {
             provide: testInterceptor,
             useValue: HTTP_INTERCEPTORS,
