@@ -1,1 +1,6 @@
-<p>rooms-booking works!---{{id}}</p>
+<div *ngIf="roomDetail">
+    <div>{{roomDetail.albumId}}</div>
+    <div>{{roomDetail.title}}</div>
+    <img [src]="roomDetail.thumbnailUrl"/>
+    <button (click)="bookRoom(roomDetail.id)">Book Now</button>
+</div>
