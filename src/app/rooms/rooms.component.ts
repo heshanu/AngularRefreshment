@@ -39,9 +39,10 @@ export class RoomsComponent {
   };
   
   getPhotos():void {
-    this.newsService.getPhotos().subscribe((data:any) => {
-      this.roomsPhotos = data;
-      console.log(``, this.roomsPhotos);
-    });
+    // this.newsService.getPhotos().subscribe((data:any) => {
+    //   this.roomsPhotos = data;
+    //   console.log(``, this.roomsPhotos);
+    // });
+    //this.roomsPhotos = localStorage.getItem('searchValue');
   }
 }

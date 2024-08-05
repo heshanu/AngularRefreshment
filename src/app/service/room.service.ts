@@ -15,4 +15,10 @@ export class RoomService {
   public getPhotos(): Observable<RoomInterface[]> {
     return this.http.get<RoomInterface[]>(`${this.baseUrl}?_limit=10`);
   }
+
+  public getRoomDetails(id: number): Observable<RoomInterface> {
+    console.log();
+    
+    return this.http.get<RoomInterface>(`${this.baseUrl}/${id}`);
+  }
 }

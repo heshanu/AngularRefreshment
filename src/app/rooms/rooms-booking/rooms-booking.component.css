@@ -1,0 +1,50 @@
+/* Styles for the room detail container */
+.room-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* Styles for the room info container */
+.room-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for the room title */
+.room-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for the room image */
+.room-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Styles for the book button */
+.book-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.book-button:hover {
+    background-color: #0056b3;
+}

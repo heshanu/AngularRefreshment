@@ -13,6 +13,7 @@ export class SearchbarComponent implements OnInit {
   
   @Input() searchLabelOptionList!:any[];
   searchList:any[]=[];
+  static roomDetail: any;
 
   constructor(private unPleshService:UnsplashService){}
   myControl = new FormControl<string | User|any>('');
@@ -45,6 +46,7 @@ export class SearchbarComponent implements OnInit {
   onSubmit() {
     console.log('Form value:', this.myControl.value+" "+"hotels");
     this.fetchPhotos(this.myControl.value+" "+"hotels");
+    //localStorage.setItem('locationSearched',this.searchList);
   }
 
   fetchPhotos(query: string) {
