@@ -59,4 +59,15 @@ export class SearchbarComponent implements OnInit {
     )};
 }
 
-export const sharedVSearchListLength = SearchbarComponent.prototype.searchList;
+export class SearchbarComponentShared {
+
+  static sharedSearchList() {
+    return this.sharedSearchList;
+  }
+
+  constructor(private searchbarComponent: SearchbarComponent) {}
+
+  get sharedSearchList(): any[] {
+    return this.searchbarComponent.searchList;
+  }
+}
