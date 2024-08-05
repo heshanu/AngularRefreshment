@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 import { User } from '../interfaces/userInterface';
@@ -58,4 +58,15 @@ export class SearchbarComponent implements OnInit {
     )};
 }
 
-export const sharedVSearchListLength = SearchbarComponent.prototype.searchList;
+export class SearchbarComponentShared {
+
+  static sharedSearchList() {
+    return this.sharedSearchList;
+  }
+
+  constructor(private searchbarComponent: SearchbarComponent) {}
+
+  get sharedSearchList(): any[] {
+    return this.searchbarComponent.searchList;
+  }
+}
