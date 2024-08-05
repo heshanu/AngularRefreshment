@@ -58,8 +58,10 @@
     background-color: #45a049; /* Darker green on hover */
 }
 </style>
+
+<div>
 <h1 mat-dialog-title class="dialog-title">
-  Your Room is Reserved!: {{seletectedRoom}}</h1>
+  Your Room is Reserved!: {{seletectedRoom.id}}</h1>
 <div mat-dialog-content class="dialog-content">
   <p>{{ seletectedRoom.title}}</p>
 </div>
@@ -67,3 +69,4 @@
   <button mat-button (click)="removeNotification(seletectedRoom.id)" mat-dialog-close class="cancel-button">Cancel</button>
   <button mat-button (click)="onConfirm()" class="confirm-button">Confirm</button>
 </div>
+</div>    

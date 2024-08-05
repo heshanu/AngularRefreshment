@@ -28,6 +28,7 @@ export class DialogAnimationsExample implements OnInit {
     private notificationService:NotificationService) { }
   
   seletectedRoom: any;
+  showNotification: boolean = true;
 
   ngOnInit(): void {
     this.seletectedRoom=this.currentRoomDetails.getRoomDetail();
@@ -37,9 +38,9 @@ export class DialogAnimationsExample implements OnInit {
     });   
   };
 
-
   removeNotification(index: number) {
     this.notificationService.removeNotification(index);
+    this.showNotification=false;
   }
 
   onConfirm() {
