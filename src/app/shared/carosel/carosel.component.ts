@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from '../../service/unsplash.service';
-import { sharedVSearchListLength } from '../searchbar/searchbar.component';
+import { SearchbarComponentShared } from '../searchbar/searchbar.component';
 
 @Component({
   selector: 'app-carosel',
@@ -10,11 +10,13 @@ import { sharedVSearchListLength } from '../searchbar/searchbar.component';
 export class CaroselComponent implements OnInit {
   photos: any[] = [];
   ph:number=0;
+  
   constructor(private unsplashService: UnsplashService) {}
 
   ngOnInit() {
     this.fetchPhotos('Luxury Hotels');
-    this.ph=sharedVSearchListLength.length;
+   // this.ph=sharedVSearchListLength.length;
+   this.ph=SearchbarComponentShared.sharedSearchList().length;
   }
 
   fetchPhotos(query: string) {
