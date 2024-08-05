@@ -11,6 +11,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { CurrentroomService } from '../../service/currentroom.service';
+import { NotificationService } from '../../service/notification.service';
+
 @Component({
   selector: 'dialog-animations-example',
   templateUrl:'./dialog-animations-example.html',
@@ -19,19 +21,30 @@ import { CurrentroomService } from '../../service/currentroom.service';
 
 export class DialogAnimationsExample implements OnInit {
   readonly dialogRef = inject(MatDialogRef<DialogAnimationsExampleDialog>);
-  
-  constructor(private currentRoomDetails:CurrentroomService) { }
 
+  notifications: string[] = [];
+
+  constructor(private currentRoomDetails:CurrentroomService,
+    private notificationService:NotificationService) { }
   
-  seletecdRoom: any;
-  removeNotification:boolean=true;
+  seletectedRoom: any;
+  showNotification: boolean = true;
+
   ngOnInit(): void {
-    this.seletecdRoom=this.currentRoomDetails.getRoomDetail();
-    console.log(this.seletecdRoom);    
+    this.seletectedRoom=this.currentRoomDetails.getRoomDetail();
+    console.log(this. seletectedRoom); 
+    this.notificationService.notifications$.subscribe(notifications => {
+      this.notifications = notifications;
+    });   
   };
 
-  removeNotificationBar(){
-    this.removeNotification=false;
+  removeNotification(index: number) {
+    this.notificationService.removeNotification(index);
+    this.showNotification=false;
+  }
+
+  onConfirm() {
+    this.dialogRef.close('confirm');
   }
  
 }
