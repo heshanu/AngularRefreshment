@@ -13,6 +13,8 @@ import {
 } from '@angular/material/dialog';
 import { DialogAnimationsExampleDialog } from './dialog-animations-example-dialog.component';
 import { DialogAnimationsExample } from './dialog-animations-example.component';
+import { SearchbarComponent } from '../../shared/searchbar/searchbar.component';
+import { CurrentroomService } from '../../service/currentroom.service';
 
 @Component({
   selector: 'app-rooms-booking',
@@ -21,7 +23,9 @@ import { DialogAnimationsExample } from './dialog-animations-example.component';
 })
 export class RoomsBookingComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService) { }
+  constructor(private route: ActivatedRoute, 
+    private roomService: RoomService,
+    private currentRoomService: CurrentroomService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -46,6 +50,7 @@ export class RoomsBookingComponent implements OnInit {
     this.roomService.getRoomDetails(id)
       .subscribe((data: RoomInterface) => {
         this.roomDetail = data;
+        this.currentRoomService.setRoomDetail(this.roomDetail);
       });
   }
 
@@ -55,15 +60,7 @@ export class RoomsBookingComponent implements OnInit {
 }
 
 export class SelectedRooomShared {
-  static roomDetail: any;
-
-  static sharedRoomDetail() {
-    return this.roomDetail;
-  }
-
-  constructor(private searchbarComponent:RoomsBookingComponent) {}
-
-  get sharedSearchList(): any {
-    return this.searchbarComponent.roomDetail;
-  }
+  readonly sharedRoomDetail = inject(RoomsBookingComponent);
+  static sharedRoomDetail: any;
+  
 }

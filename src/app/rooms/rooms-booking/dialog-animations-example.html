@@ -60,11 +60,15 @@
 
 </style>
 
-<h1 mat-dialog-title class="dialog-title">Your Room is Reserved!: {{seletecdRoom.id}}</h1>
+<div>
+    <h1 mat-dialog-title class="dialog-title">Your Room is Reserved!: {{seletecdRoom.id}}</h1>
 <div mat-dialog-content class="dialog-content">
-  <p>{{ seletecdRoom.title}}</p>
+  <p style="color: white;">{{seletecdRoom.title}}:<br/> Thank You</p>
 </div>
+</div>
+
+
 <div mat-dialog-actions class="dialog-actions">
   <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
-  <button mat-button mat-dialog-close="true" class="confirm-button">Confirm</button>
+  <button mat-button mat-dialog-close="true" class="confirm-button" type="submit" (click)="removeNotificationBar()" mat-dialog-close [disabled]="removeNotification" mat-button>Submit</button>
 </div>

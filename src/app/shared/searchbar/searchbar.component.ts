@@ -13,6 +13,7 @@ export class SearchbarComponent implements OnInit {
   
   @Input() searchLabelOptionList!:any[];
   searchList:any[]=[];
+  static roomDetail: any;
 
   constructor(private unPleshService:UnsplashService){}
   myControl = new FormControl<string | User|any>('');
