@@ -10,7 +10,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatTableModule } from "@angular/material/table";
 import { MatSelectModule } from "@angular/material/select";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
     imports: [
@@ -24,7 +24,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatSlideToggleModule,
         MatSelectModule,
         MatOptionModule,
-        MatAutocompleteModule 
+        MatAutocompleteModule,
+        MatPaginatorModule 
     ],
     exports: [
         MatToolbarModule,
@@ -37,7 +38,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
         MatSlideToggleModule,
         MatSelectModule,
         MatOptionModule,
-        MatAutocompleteModule 
+        MatAutocompleteModule,
+        MatPaginatorModule
     ]
 })
 export class MaterialModule { }

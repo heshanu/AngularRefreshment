@@ -33,6 +33,7 @@ import { MaterialModule } from './materilModule';
 import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { CaroselComponent } from './shared/carosel/carosel.component';
 import { NgIconModule } from './ngIcons.module';
+import { PaginationComponent } from './shared/pagination/pagination.component';
 //import { PrimeModuleNgModule } from './primeNg.module';
 
 
@@ -53,9 +54,11 @@ import { NgIconModule } from './ngIcons.module';
         LoginComponent,
         SearchbarComponent,
         CaroselComponent,
-        
+           
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent],
+    imports: [
+    BrowserModule,
     AppRoutingModule,
     FormsModule, ReactiveFormsModule, MatSlideToggleModule,
     BrowserAnimationsModule,
@@ -63,7 +66,10 @@ import { NgIconModule } from './ngIcons.module';
     MatSidenavModule, MatIconModule,
     MatListModule, MaterialModule,
     // PrimeModuleNgModule,
-    NgIconModule],
+    NgIconModule,
+    PaginationComponent
+]
+    ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
         {
             provide: testInterceptor,
