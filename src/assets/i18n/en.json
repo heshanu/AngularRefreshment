@@ -1,5 +1,10 @@
 {
+    
     "HELLO_WORLD": "Hello, World!",
-    "LOGIN":"LOGIN"
-  }
+    "LOGIN":"LOGIN",
+    "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"The username and password were not recognized",
+    "EMAIL_ERROR":" Please provide a valid email address",
+    "PASSWORD_ERROR":"Please provide a valid password",
+    "LOGIN_BTN":"LOGIN"
+}
   
