@@ -4,12 +4,12 @@
         <h2>{{'LOGIN'| translate}}</h2>
        
         <mat-error *ngIf="!loginValid">
-          The username and password were not recognized
+         {{'LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG'|translate}}
         </mat-error>
         <mat-form-field>
             <input matInput placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [(ngModel)]="username" name="username" required>
           <mat-error>
-            Please provide a valid email address
+            {{'EMAIL_ERROR'| translate}}
           </mat-error>
         </mat-form-field>
         <mat-form-field>
