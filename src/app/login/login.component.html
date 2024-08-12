@@ -2,7 +2,7 @@
     <mat-card-content>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <h2>{{'LOGIN'| translate}}</h2>
-        <!-- <p>{{ 'HELLO_WORLD' | translate }}</p> -->
+       
         <mat-error *ngIf="!loginValid">
           The username and password were not recognized
         </mat-error>
