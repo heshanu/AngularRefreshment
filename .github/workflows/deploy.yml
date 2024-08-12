@@ -1,0 +1,34 @@
+name: Deploy Angular Micro Front-Ends
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build and deploy mfe1
+      run: |
+        cd mfe1
+        npm install
+        npm run deploy
+
+    - name: Build and deploy mfe2
+      run: |
+        cd mfe2
+        npm install
+        npm run deploy
