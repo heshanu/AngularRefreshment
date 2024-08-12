@@ -7,6 +7,13 @@
     "PASSWORD_ERROR":"Please provide a valid password",
     "LOGIN_BTN":"LOGIN",
     "PASSWORD_FIELD_PLACEHOLDER":"Password Here",
-     "EMAIL_FIELD_PLACEHOLDER":"Email Here"
+     "EMAIL_FIELD_PLACEHOLDER":"Email Here",
+
+     "FIRST_NAME":"First Name",
+     "LAST_NAME":"Last Name",
+     "NIC":"NIC/Passport number",
+     "NUMOFDAYS":"Number of days",
+     "EMAIL":"Email",
+     "ADDROOM_BTN":"SUBMIT"
 }
   
