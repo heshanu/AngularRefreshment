@@ -36,6 +36,7 @@ import { NgIconModule } from './ngIcons.module';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { TranslationModule } from './translation.module';
 import { LanguageselectorComponent } from './shared/language/languageselector/languageselector.component';
+import { FooterComponent } from './shared/footer/footer.component';
 //import { PrimeModuleNgModule } from './primeNg.module';
 
 
@@ -56,8 +57,9 @@ import { LanguageselectorComponent } from './shared/language/languageselector/la
         LoginComponent,
         SearchbarComponent,
         CaroselComponent,
-        LanguageselectorComponent
-           
+        LanguageselectorComponent,
+        FooterComponent 
+          
     ],
     bootstrap: [AppComponent],
     imports: [
