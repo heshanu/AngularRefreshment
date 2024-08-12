@@ -4,6 +4,8 @@
     "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"Имя пользователя и пароль не были распознаны",
     "EMAIL_ERROR":"Пожалуйста, укажите действительный адрес электронной почты",
     "PASSWORD_ERROR":"Пожалуйста, укажите действительный пароль",
-    "LOGIN_BTN":"Авторизоваться"
+    "LOGIN_BTN":"Авторизоваться",
+     "PASSWORD_FIELD_PLACEHOLDER":"Пароль здесь",
+      "EMAIL_FIELD_PLACEHOLDER":"Пишите сюда"
   }
   
