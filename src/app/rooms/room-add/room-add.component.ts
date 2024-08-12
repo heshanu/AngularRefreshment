@@ -1,28 +1,78 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { room } from '../../shared/interface/room';
 
 @Component({
   selector: 'app-room-add',
   templateUrl: './room-add.component.html',
-  styleUrl: './room-add.component.css'
+  styleUrls: ['./room-add.component.css']
 })
-export class RoomAddComponent implements OnInit{
-  constructor(private ref: ElementRef) { }
-  @ViewChild('f') form: any;
-  b: boolean = false;
-  roomModel: room = {}; 
-  ngOnInit(): void {}
+export class RoomAddComponent implements OnInit {
+
+  roomDetailsForm!: FormGroup;
+  submitted: boolean = false;
+  isLoading: boolean = false;
+
+  get f() {
+    return this.roomDetailsForm.controls;
+  }
+
+  roomModel: room = {};
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm(): void {
+    
+    this.roomDetailsForm = this.formBuilder.group({
+      firstName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{4,15}$')]
+      ],
+      lastName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{4,15}$')]
+      ],
+      email: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]
+      ],
+      nic: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]{9}[V|v]$')]
+      ],
+      numOfDays: [
+        '',
+        [Validators.required, Validators.pattern('[0-9]{1,2}$')]
+      ]
+    });
+  }
 
   onSubmit(): void {
-    if (this.form.invalid) {
-      alert('please enter valid data!');
-      return;
-    }
-    //pass the form object to backend via the service
-    alert('success');
-    console.log(this.form.controls);
+    this.submitted = true;
+
+    //console.log(this.roomDetailsForm.firstName);
     
-    //reset form value after hit the submit button
-    this.form.reset();
+
+    if (this.roomDetailsForm.valid) {
+      this.isLoading = true;
+     
+      // Simulating an API call with a timeout
+      setTimeout(() => {
+        console.log('Response');
+        this.isLoading = false;
+        this.clearForm();
+      }, 3000);
+    }
   }
+
+  clearForm(): void {
+    this.submitted = false;
+    this.roomDetailsForm.reset();
+  }
+
+
 }

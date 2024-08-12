@@ -1,50 +1,69 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <label for="">Firstname</label>
-        <input #name="ngModel" [ngClass]="{
-                  'is-invalid':
-                    name.invalid && (name.invalid || name.touched),
-                  'is-valid':
-                    name.valid && (name.invalid || name.touched)
-                }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.name"
-            placeholder="name" name="firstName" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="name.errors">Please fill name!</p>
-        </div>
+<form [formGroup]="roomDetailsForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName"
+           [ngClass]="{
+             'is-invalid': (submitted || f['firstName'].touched) && f['firstName'].errors,
+             'is-valid': (submitted || f['firstName'].touched) && !f['firstName'].errors
+           }">
+    <div *ngIf="(submitted || f['firstName'].touched) && f['firstName'].errors" class="error-message">
+      <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+      <div *ngIf="f['firstName'].errors['pattern']">First Name must be 4-15 characters long and contain only letters</div>
     </div>
+  </div>
 
-    <div class="form-group"> 
-        <label for="">toISO</label>
-        <input #isOn="ngModel" [ngClass]="{
-                      'is-invalid':
-                        isOn.invalid && (isOn.invalid || isOn.touched),
-                      'is-valid':
-                        isOn.valid && (isOn.invalid || isOn.touched)
-                    }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.isOn"
-            placeholder="isOn" name="isOn" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="isOn.errors">Please fill isOn</p>
-        </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" formControlName="lastName"
+           [ngClass]="{
+             'is-invalid': (submitted || f['lastName'].touched) && f['lastName'].errors,
+             'is-valid': (submitted || f['lastName'].touched) && !f['lastName'].errors
+           }">
+    <div *ngIf="(submitted || f['lastName'].touched) && f['lastName'].errors" class="error-message">
+      <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+      <div *ngIf="f['lastName'].errors['pattern']">Last Name must be 4-15 characters long and contain only letters</div>
     </div>
+  </div>
 
-    <div class="form-group">  
-        <label for="">Temparature</label>
-        <input #temperature="ngModel" [ngClass]="{
-                          'is-invalid':
-                             temperature.invalid && ( temperature.invalid ||  temperature.touched),
-                          'is-valid':
-                             temperature.valid && ( temperature.invalid ||  temperature.touched)
-                        }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.temperature"
-            placeholder=" temperature" name=" temperature" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="temperature.errors">Please fill temperature</p>
-        </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email"
+           [ngClass]="{
+             'is-invalid': (submitted || f['email'].touched) && f['email'].errors,
+             'is-valid': (submitted || f['email'].touched) && !f['email'].errors
+           }">
+    <div *ngIf="(submitted || f['email'].touched) && f['email'].errors" class="error-message">
+      <div *ngIf="f['email'].errors['required']">Email is required</div>
+      <div *ngIf="f['email'].errors['pattern']">Email must be a valid email address</div>
     </div>
+  </div>
 
-    <button [disabled]="f.invalid" class="btn btn-primary" type="submit" value="submit">
-        Submit
-    </button>
+  <div>
+    <label for="nic">NIC:</label>
+    <input id="nic" formControlName="nic"
+           [ngClass]="{
+             'is-invalid': (submitted || f['nic'].touched) && f['nic'].errors,
+             'is-valid': (submitted || f['nic'].touched) && !f['nic'].errors
+           }">
+    <div *ngIf="(submitted || f['nic'].touched) && f['nic'].errors" class="error-message">
+      <div *ngIf="f['nic'].errors['required']">NIC is required</div>
+      <div *ngIf="f['nic'].errors['pattern']">NIC must be 9 digits followed by 'V' or 'v'</div>
+    </div>
+  </div>
 
-    <p *ngIf="!f.invalid">{{ f.value | json }}</p>
+  <div>
+    <label for="numOfDays">Number of Days:</label>
+    <input id="numOfDays" formControlName="numOfDays"
+           [ngClass]="{
+             'is-invalid': (submitted || f['numOfDays'].touched) && f['numOfDays'].errors,
+             'is-valid': (submitted || f['numOfDays'].touched) && !f['numOfDays'].errors
+           }">
+    <div *ngIf="(submitted || f['numOfDays'].touched) && f['numOfDays'].errors" class="error-message">
+      <div *ngIf="f['numOfDays'].errors['required']">Number of Days is required</div>
+      <div *ngIf="f['numOfDays'].errors['pattern']">Number of Days must be 1-2 digits</div>
+    </div>
+  </div>
 
+   <snack-bar-annotated-component-example/> 
+  <button type="submit" [disabled]="!roomDetailsForm.valid">Submit</button>
 </form>
