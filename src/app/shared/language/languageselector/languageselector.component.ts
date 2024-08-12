@@ -10,8 +10,8 @@ export class LanguageselectorComponent implements OnInit{
 
   languages = [
     { code: 'en', label: 'English' },
-    { code: 'ru', label: 'Russian' },
-    { code: 'de', label: 'German' }
+    { code: 'ru', label: 'Русский' },
+    { code: 'de', label: 'Deutsch' }
   ];
 
   constructor(private translate: TranslateService) {}
