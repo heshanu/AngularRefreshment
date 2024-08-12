@@ -1,92 +1,68 @@
-<form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
-    <div class="col-6">
-        <div class="form-group">
-          <label>Last Name</label>
-          <input
-            formControlName="lastName"
-            type="text"
-            class="form-control"
-            placeholder="Enter Last Name"
-            [ngClass]="{
-              'is-invalid': submitted && f['lastName'].errors,
-              'is-valid': !f['lastName'].errors }"
-          />
-          <div class="invalid-feedback" *ngIf="f['lastName'].errors">
-            <div *ngIf="f['lastName'].errors['required']">
-              Please Enter lastName
-            </div>
-            <div *ngIf="f['lastName'].errors['pattern']">
-              Name cant be numbers
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="form-group"> 
-        <label for="">LastName</label>
-        <input #lastName="ngModel" 
-        [ngClass]="{
-                      'is-invalid':
-                        lastName.invalid && (lastName.invalid || lastName.touched),
-                      'is-valid':
-                        lastName.valid && (lastName.invalid || lastName.touched)
-                    }" minlength="1" required class="form-control" 
-                    type="text" [(ngModel)]="roomModel.lastName "
-            placeholder="LastName here" name="isOn" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="lastName.errors">Please fill LastName</p>
-        </div>
+<form [formGroup]="roomDetailsForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">First Name:</label>
+    <input id="firstName" formControlName="firstName"
+           [ngClass]="{
+             'is-invalid': (submitted || f['firstName'].touched) && f['firstName'].errors,
+             'is-valid': (submitted || f['firstName'].touched) && !f['firstName'].errors
+           }">
+    <div *ngIf="(submitted || f['firstName'].touched) && f['firstName'].errors" class="error-message">
+      <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+      <div *ngIf="f['firstName'].errors['pattern']">First Name must be 4-15 characters long and contain only letters</div>
     </div>
+  </div>
 
-    <div class="form-group">  
-        <label for="">NIC/Paaport</label>
-        <input #nic="ngModel" [ngClass]="{
-                          'is-invalid':
-                             nic.invalid && ( nic.invalid ||  nic.touched),
-                          'is-valid':
-                             nic.valid && ( nic.invalid || nic.touched)
-                        }" minlength="1" required class="form-control" 
-                        type="text" [(ngModel)]="roomModel.nic"
-            placeholder="Nic/Passport Number" name=" temperature" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="nic.errors">Please fill Nic/Passport number</p>
-        </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" formControlName="lastName"
+           [ngClass]="{
+             'is-invalid': (submitted || f['lastName'].touched) && f['lastName'].errors,
+             'is-valid': (submitted || f['lastName'].touched) && !f['lastName'].errors
+           }">
+    <div *ngIf="(submitted || f['lastName'].touched) && f['lastName'].errors" class="error-message">
+      <div *ngIf="f['lastName'].errors['required']">Last Name is required</div>
+      <div *ngIf="f['lastName'].errors['pattern']">Last Name must be 4-15 characters long and contain only letters</div>
     </div>
+  </div>
 
-    <div class="form-group">  
-        <label for="">Email</label>
-        <input #email="ngModel" [ngClass]="{
-                          'is-invalid':
-                             email.invalid && ( email.invalid ||  email.touched),
-                          'is-valid':
-                             email.valid && ( email.invalid || email.touched)
-                        }" minlength="1" required class="form-control" 
-                        type="text" [(ngModel)]="roomModel.email"
-            placeholder="Email Here" name="Email" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="nic.errors">Please fill email</p>
-        </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email"
+           [ngClass]="{
+             'is-invalid': (submitted || f['email'].touched) && f['email'].errors,
+             'is-valid': (submitted || f['email'].touched) && !f['email'].errors
+           }">
+    <div *ngIf="(submitted || f['email'].touched) && f['email'].errors" class="error-message">
+      <div *ngIf="f['email'].errors['required']">Email is required</div>
+      <div *ngIf="f['email'].errors['pattern']">Email must be a valid email address</div>
     </div>
+  </div>
 
-    <div class="form-group">  
-        <label for="">number of days</label>
-        <input #numOfDay="ngModel" [ngClass]="{
-                          'is-invalid':
-                          numOfDay.invalid && (  numOfDay.invalid || numOfDay.touched),
-                          'is-valid':
-                          numOfDay.valid && (  numOfDay.invalid ||  numOfDay.touched)
-                        }" minlength="1" required class="form-control" 
-                        type="text" [(ngModel)]="roomModel.numOfDays"
-            placeholder="Nic/Passport Number" name="num of days" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="nic.errors">Please fill Num of Days</p>
-        </div>
+  <div>
+    <label for="nic">NIC:</label>
+    <input id="nic" formControlName="nic"
+           [ngClass]="{
+             'is-invalid': (submitted || f['nic'].touched) && f['nic'].errors,
+             'is-valid': (submitted || f['nic'].touched) && !f['nic'].errors
+           }">
+    <div *ngIf="(submitted || f['nic'].touched) && f['nic'].errors" class="error-message">
+      <div *ngIf="f['nic'].errors['required']">NIC is required</div>
+      <div *ngIf="f['nic'].errors['pattern']">NIC must be 9 digits followed by 'V' or 'v'</div>
     </div>
+  </div>
 
-    <button [disabled]="f.invalid" class="btn btn-primary" type="submit" value="submit">
-        Submit
-    </button>
+  <div>
+    <label for="numOfDays">Number of Days:</label>
+    <input id="numOfDays" formControlName="numOfDays"
+           [ngClass]="{
+             'is-invalid': (submitted || f['numOfDays'].touched) && f['numOfDays'].errors,
+             'is-valid': (submitted || f['numOfDays'].touched) && !f['numOfDays'].errors
+           }">
+    <div *ngIf="(submitted || f['numOfDays'].touched) && f['numOfDays'].errors" class="error-message">
+      <div *ngIf="f['numOfDays'].errors['required']">Number of Days is required</div>
+      <div *ngIf="f['numOfDays'].errors['pattern']">Number of Days must be 1-2 digits</div>
+    </div>
+  </div>
 
-    <p *ngIf="!f.invalid">{{ f.value | json }}</p>
-
+  <button type="submit" [disabled]="!roomDetailsForm.valid">Submit</button>
 </form>

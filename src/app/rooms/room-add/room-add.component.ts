@@ -26,6 +26,7 @@ export class RoomAddComponent implements OnInit {
   }
 
   initForm(): void {
+    
     this.roomDetailsForm = this.formBuilder.group({
       firstName: [
         '',
@@ -53,17 +54,19 @@ export class RoomAddComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
+    //console.log(this.roomDetailsForm.firstName);
+    
+
     if (this.roomDetailsForm.valid) {
-
       this.isLoading = true;
+      console.log(this.roomDetailsForm.value);
 
-      //avoiding redudancy data insertion
+      // Simulating an API call with a timeout
       setTimeout(() => {
         console.log('Response');
         this.isLoading = false;
         this.clearForm();
-      }, 3000)
-
+      }, 3000);
     }
   }
 
@@ -71,5 +74,6 @@ export class RoomAddComponent implements OnInit {
     this.submitted = false;
     this.roomDetailsForm.reset();
   }
+
 
 }
