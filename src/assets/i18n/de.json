@@ -2,7 +2,9 @@
     "HELLO_WORLD": "Hallo, Welt!",
     "LOGIN":"LOGIN",
     "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"Der Benutzername und das Passwort wurden nicht erkannt",
-    "EMAIL_ERROR":"Bitte geben Sie eine gültige E-Mail-Adresse ans"
-    
+    "EMAIL_ERROR":"Bitte geben Sie eine gültige E-Mail-Adresse ans",
+    "PASSWORD_ERROR":"Bitte geben Sie ein gültiges Passwort ein",
+    "LOGIN_BTN":"LOGIN"
+
   }
   
