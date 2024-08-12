@@ -4,7 +4,9 @@
     "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"Der Benutzername und das Passwort wurden nicht erkannt",
     "EMAIL_ERROR":"Bitte geben Sie eine gültige E-Mail-Adresse ans",
     "PASSWORD_ERROR":"Bitte geben Sie ein gültiges Passwort ein",
-    "LOGIN_BTN":"LOGIN"
+    "LOGIN_BTN":"LOGIN",
+    "PASSWORD_FIELD_PLACEHOLDER":"Passwort hier",
+    "EMAIL_FIELD_PLACEHOLDER":"Hier per E-Mail senden"
 
   }
   

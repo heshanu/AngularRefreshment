@@ -7,13 +7,14 @@
          {{'LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG'|translate}}
         </mat-error>
         <mat-form-field>
-            <input matInput placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [(ngModel)]="username" name="username" required>
+            <input matInput 
+            placeholder="{{'EMAIL_FIELD_PLACEHOLDER'|translate}}" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [(ngModel)]="username" name="username" required>
           <mat-error>
             {{'EMAIL_ERROR'| translate}}
           </mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+          <input matInput type="password" placeholder="{{'PASSWORD_FIELD_PLACEHOLDER'| translate}}" [(ngModel)]="password" name="password" required>
           <mat-error>
            {{'PASSWORD_ERROR'|translate}}
           </mat-error>

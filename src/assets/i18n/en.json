@@ -5,6 +5,8 @@
     "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"The username and password were not recognized",
     "EMAIL_ERROR":" Please provide a valid email address",
     "PASSWORD_ERROR":"Please provide a valid password",
-    "LOGIN_BTN":"LOGIN"
+    "LOGIN_BTN":"LOGIN",
+    "PASSWORD_FIELD_PLACEHOLDER":"Password Here",
+     "EMAIL_FIELD_PLACEHOLDER":"Email Here"
 }
   
