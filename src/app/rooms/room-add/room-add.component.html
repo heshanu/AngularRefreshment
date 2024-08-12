@@ -1,43 +1,85 @@
 <form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <label for="">Firstname</label>
-        <input #name="ngModel" [ngClass]="{
-                  'is-invalid':
-                    name.invalid && (name.invalid || name.touched),
-                  'is-valid':
-                    name.valid && (name.invalid || name.touched)
-                }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.name"
-            placeholder="name" name="firstName" ngModel />
-        <div class="invalid-feedback">
-            <p *ngIf="name.errors">Please fill name!</p>
+    <div class="col-6">
+        <div class="form-group">
+          <label>Last Name</label>
+          <input
+            formControlName="lastName"
+            type="text"
+            class="form-control"
+            placeholder="Enter Last Name"
+            [ngClass]="{
+              'is-invalid': submitted && f['lastName'].errors,
+              'is-valid': !f['lastName'].errors }"
+          />
+          <div class="invalid-feedback" *ngIf="f['lastName'].errors">
+            <div *ngIf="f['lastName'].errors['required']">
+              Please Enter lastName
+            </div>
+            <div *ngIf="f['lastName'].errors['pattern']">
+              Name cant be numbers
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
     <div class="form-group"> 
-        <label for="">toISO</label>
-        <input #isOn="ngModel" [ngClass]="{
+        <label for="">LastName</label>
+        <input #lastName="ngModel" 
+        [ngClass]="{
                       'is-invalid':
-                        isOn.invalid && (isOn.invalid || isOn.touched),
+                        lastName.invalid && (lastName.invalid || lastName.touched),
                       'is-valid':
-                        isOn.valid && (isOn.invalid || isOn.touched)
-                    }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.isOn"
-            placeholder="isOn" name="isOn" ngModel />
+                        lastName.valid && (lastName.invalid || lastName.touched)
+                    }" minlength="1" required class="form-control" 
+                    type="text" [(ngModel)]="roomModel.lastName "
+            placeholder="LastName here" name="isOn" ngModel />
         <div class="invalid-feedback">
-            <p *ngIf="isOn.errors">Please fill isOn</p>
+            <p *ngIf="lastName.errors">Please fill LastName</p>
         </div>
     </div>
 
     <div class="form-group">  
-        <label for="">Temparature</label>
-        <input #temperature="ngModel" [ngClass]="{
+        <label for="">NIC/Paaport</label>
+        <input #nic="ngModel" [ngClass]="{
                           'is-invalid':
-                             temperature.invalid && ( temperature.invalid ||  temperature.touched),
+                             nic.invalid && ( nic.invalid ||  nic.touched),
                           'is-valid':
-                             temperature.valid && ( temperature.invalid ||  temperature.touched)
-                        }" minlength="1" required class="form-control" type="text" [(ngModel)]="roomModel.temperature"
-            placeholder=" temperature" name=" temperature" ngModel />
+                             nic.valid && ( nic.invalid || nic.touched)
+                        }" minlength="1" required class="form-control" 
+                        type="text" [(ngModel)]="roomModel.nic"
+            placeholder="Nic/Passport Number" name=" temperature" ngModel />
         <div class="invalid-feedback">
-            <p *ngIf="temperature.errors">Please fill temperature</p>
+            <p *ngIf="nic.errors">Please fill Nic/Passport number</p>
+        </div>
+    </div>
+
+    <div class="form-group">  
+        <label for="">Email</label>
+        <input #email="ngModel" [ngClass]="{
+                          'is-invalid':
+                             email.invalid && ( email.invalid ||  email.touched),
+                          'is-valid':
+                             email.valid && ( email.invalid || email.touched)
+                        }" minlength="1" required class="form-control" 
+                        type="text" [(ngModel)]="roomModel.email"
+            placeholder="Email Here" name="Email" ngModel />
+        <div class="invalid-feedback">
+            <p *ngIf="nic.errors">Please fill email</p>
+        </div>
+    </div>
+
+    <div class="form-group">  
+        <label for="">number of days</label>
+        <input #numOfDay="ngModel" [ngClass]="{
+                          'is-invalid':
+                          numOfDay.invalid && (  numOfDay.invalid || numOfDay.touched),
+                          'is-valid':
+                          numOfDay.valid && (  numOfDay.invalid ||  numOfDay.touched)
+                        }" minlength="1" required class="form-control" 
+                        type="text" [(ngModel)]="roomModel.numOfDays"
+            placeholder="Nic/Passport Number" name="num of days" ngModel />
+        <div class="invalid-feedback">
+            <p *ngIf="nic.errors">Please fill Num of Days</p>
         </div>
     </div>
 
