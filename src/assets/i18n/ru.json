@@ -6,6 +6,15 @@
     "PASSWORD_ERROR":"Пожалуйста, укажите действительный пароль",
     "LOGIN_BTN":"Авторизоваться",
      "PASSWORD_FIELD_PLACEHOLDER":"Пароль здесь",
-      "EMAIL_FIELD_PLACEHOLDER":"Пишите сюда"
+      "EMAIL_FIELD_PLACEHOLDER":"Пишите сюда",
+
+      "FIRST_NAME":"имя",
+      "LAST_NAME":"Фамилия",
+     "NIC":"Номер NIC/паспорта",
+     "NUMOFDAYS":"количество дней",
+     "EMAIL":"электронная почта",
+    "ADDROOM_BTN":"ПРЕДСТАВЛЯТЬ НА РАССМОТРЕНИЕ"
+
+
   }
   

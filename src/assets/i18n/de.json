@@ -6,7 +6,13 @@
     "PASSWORD_ERROR":"Bitte geben Sie ein gültiges Passwort ein",
     "LOGIN_BTN":"LOGIN",
     "PASSWORD_FIELD_PLACEHOLDER":"Passwort hier",
-    "EMAIL_FIELD_PLACEHOLDER":"Hier per E-Mail senden"
+    "EMAIL_FIELD_PLACEHOLDER":"Hier per E-Mail senden",
 
+    "FIRST_NAME":"Vorname",
+    "LAST_NAME":"Nachname",
+    "NIC":"NIC/Passnummer",
+    "NUMOFDAYS":"Anzahl Tage",
+    "EMAIL":"E-Mail",
+    "ADDROOM_BTN":"EINREICHEN"
   }
   
