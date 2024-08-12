@@ -8,7 +8,6 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "npm run build && npx gh-pages -d dist/AngularRefreshment"
-
   },
   "private": true,
   "dependencies": {
@@ -35,6 +34,7 @@
     "primeng": "^17.18.7",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "unsplash-js": "^7.0.19",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
