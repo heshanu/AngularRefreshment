@@ -34,6 +34,8 @@ import { SearchbarComponent } from './shared/searchbar/searchbar.component';
 import { CaroselComponent } from './shared/carosel/carosel.component';
 import { NgIconModule } from './ngIcons.module';
 import { PaginationComponent } from './shared/pagination/pagination.component';
+import { TranslationModule } from './translation.module';
+import { LanguageselectorComponent } from './shared/language/languageselector/languageselector.component';
 //import { PrimeModuleNgModule } from './primeNg.module';
 
 
@@ -54,6 +56,7 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
         LoginComponent,
         SearchbarComponent,
         CaroselComponent,
+        LanguageselectorComponent
            
     ],
     bootstrap: [AppComponent],
@@ -67,7 +70,7 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
     MatListModule, MaterialModule,
     // PrimeModuleNgModule,
     NgIconModule,
-    PaginationComponent
+    PaginationComponent,TranslationModule 
 ]
     ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,

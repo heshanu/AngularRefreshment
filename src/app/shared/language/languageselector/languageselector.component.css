@@ -1,0 +1,46 @@
+/* Style for the container div */
+.language-selector-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the label */
+  .language-selector-container label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  /* Style for the select element */
+  .language-selector-container select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s;
+  }
+  
+  /* Style for the select element on focus */
+  .language-selector-container select:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Style for the options */
+  .language-selector-container select option {
+    padding: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Style for the select element on hover */
+  .language-selector-container select:hover {
+    border-color: #0056b3;
+  }
+  
