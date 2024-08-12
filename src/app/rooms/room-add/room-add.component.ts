@@ -59,8 +59,7 @@ export class RoomAddComponent implements OnInit {
 
     if (this.roomDetailsForm.valid) {
       this.isLoading = true;
-      console.log(this.roomDetailsForm.value);
-
+     
       // Simulating an API call with a timeout
       setTimeout(() => {
         console.log('Response');
