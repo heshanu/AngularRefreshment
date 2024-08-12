@@ -1,0 +1,19 @@
+<form class="example-form" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Destination</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div *ngIf="searchList">
+  <div *ngFor="let photo of searchList" class="photo-item">
+    <img [src]="photo.urls.regular" alt="Photo">
+  </div>
+</div>
+
+

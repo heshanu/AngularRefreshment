@@ -1,15 +1,2 @@
-
-<p *ngIf="isShowing">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores vero illo explicabo libero itaque fugiat iste in ex blanditiis similique aspernatur corrupti, voluptatum debitis quos dicta impedit iusto, animi assumenda!</p>
-<img [src]="itemImageUrl" alt="">
-
-
-<div [ngSwitch]="role">
-    <div [ngClass]="role=='admin'?'success':'error'" *ngSwitchCase="'user'"><h2>User</h2></div>
-    <div [ngClass]="role=='admin'?'success':'error'" *ngSwitchCase="'admin'"><h2>Admin</h2></div>
-    <div [ngStyle]="{'font-color':role == 'fucker' ? '' : '10px' }">Fucker</div>
-    <div [ngStyle]="" *ngSwitchDefault><h2>Guest</h2></div>
-</div>
-
-<div>
-    <div></div>
-</div>
+<app-searchbar [searchLabelOptionList]="searchOptionsList"/>
+<app-carosel/>

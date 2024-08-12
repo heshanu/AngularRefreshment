@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { ContainerComponent } from './container/container.component';
@@ -23,43 +23,62 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
+import { RoomsBookingComponent} from './rooms/rooms-booking/rooms-booking.component';
 import { AuthService } from './service/auth.service';
 import { NewsService } from './service/news.service';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
+import { LoginComponent } from './login/login.component';
+import { MaterialModule } from './materilModule';
+import { SearchbarComponent } from './shared/searchbar/searchbar.component';
+import { CaroselComponent } from './shared/carosel/carosel.component';
+import { NgIconModule } from './ngIcons.module';
+import { PaginationComponent } from './shared/pagination/pagination.component';
+import { TranslationModule } from './translation.module';
+import { LanguageselectorComponent } from './shared/language/languageselector/languageselector.component';
+import { FooterComponent } from './shared/footer/footer.component';
+//import { PrimeModuleNgModule } from './primeNg.module';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    RoomsComponent,
-    RoomsListComponent,
-    ContainerComponent,
-    EmployeeComponent,
-    EvenPipePipe,
-    Usd2lkrsPipe,
-    AppNavComponent,
-    NotFoundComponent,
-    RoomsBookingComponent,
-    RoomsBookingComponent,
-    RoomAddComponent,
-  ],
-  
-  imports: [
+@NgModule({ declarations: [
+        AppComponent,
+        HomeComponent,
+        RoomsComponent,
+        RoomsListComponent,
+        ContainerComponent,
+        EmployeeComponent,
+        EvenPipePipe,
+        Usd2lkrsPipe,
+        AppNavComponent,
+        NotFoundComponent,
+        RoomsBookingComponent,
+        RoomsBookingComponent,
+        RoomAddComponent,
+        LoginComponent,
+        SearchbarComponent,
+        CaroselComponent,
+        LanguageselectorComponent,
+        FooterComponent 
+          
+    ],
+    bootstrap: [AppComponent],
+    imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,ReactiveFormsModule,MatSlideToggleModule,HttpClientModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,],
-  
-  providers: [EvenPipePipe, Usd2lkrsPipe,AuthService,NewsService,AuthGuard,
-  
-    {
-      provide: testInterceptor,
-      useValue: HTTP_INTERCEPTORS,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+    FormsModule, ReactiveFormsModule, MatSlideToggleModule,
+    BrowserAnimationsModule,
+    MatToolbarModule, MatButtonModule,
+    MatSidenavModule, MatIconModule,
+    MatListModule, MaterialModule,
+    // PrimeModuleNgModule,
+    NgIconModule,
+    PaginationComponent,TranslationModule 
+]
+    ,
+    providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
+        {
+            provide: testInterceptor,
+            useValue: HTTP_INTERCEPTORS,
+            multi: true
+        }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

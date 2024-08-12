@@ -1,9 +1,13 @@
-<p>rooms-list works!</p>
-
-<div *ngFor="let i of roomsList">
-    <li>{{i.id}}</li>
-    <li>{{i.name}}</li>
-    <li>{{i.isOn}}</li>
-    <li>{{i.temperature}}</li>
-    <button (click)="selectRoom(i)" [routerLink]="['/rooms',i.id]">Select Room</button>
+<div class="card-container">
+  <mat-card appearance="outlined" *ngFor="let i of roomsList" class="room-card">
+    <mat-card-header>
+      <mat-card-title class="card-title">{{i.title | uppercase}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image src="{{i.url}}" alt="{{i.title}}" class="card-image">
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="selectRoom(i)" [routerLink]="['/rooms', i.id]" mat-raised-button class="select-button">Select Room</button>
+    </mat-card-actions>
+  </mat-card>
 </div>

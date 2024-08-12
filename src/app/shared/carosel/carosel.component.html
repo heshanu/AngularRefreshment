@@ -1,0 +1,7 @@
+<div *ngIf="ph>0">
+  <div *ngFor="let photo of photos" class="photo-item">
+    <img [src]="photo.urls.regular" alt="Photo">
+  </div>
+</div>
+
+

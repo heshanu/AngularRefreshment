@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../service/news.service';
+import { User } from '../shared/interfaces/userInterface';
 
 interface newsDataInterface {
   location?: string;
@@ -19,26 +19,18 @@ region:String;
   styleUrl: './home.component.css'
 })
    
-export class HomeComponent {
+export class HomeComponent implements OnInit {
  
   newsData: newsDataInterface[] = [];
 
-  constructor(private newsService: NewsService) { }
+  constructor() { }
   
-  name: String = "angular";
-  itemImageUrl = '../assets/phone.svg';
-  isShowing: boolean = false;
-  
-  role: String = 'fucker';
+  searchOptionsList:User[]=[
+       {name:'Hikkaduwa'},{name:'Weligama'},{name:'Trinco'}
+  ];
 
-  selectHero: String = 'Windstorm';
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
-
-  // getNews() { 
-  //   this.newsService.getNews().subscribe((news: any) => {
-  //     this.newsData = news.location;
-  //     console.log(this.newsData);
-  //   });
-  // }
-  
+  ngOnInit(): void {
+    
+  }
+ 
 }

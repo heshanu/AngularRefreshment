@@ -7,10 +7,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RoomsBookingComponent } from './rooms/rooms-booking/rooms-booking.component';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { RoomAddComponent } from './rooms/room-add/room-add.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path:'',redirectTo:'home',pathMatch:'full'
+    path:'',component:LoginComponent
   },
   {
     path:'rooms',component:RoomsComponent,canActivate:[AuthGuard]
