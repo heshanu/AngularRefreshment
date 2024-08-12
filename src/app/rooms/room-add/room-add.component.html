@@ -1,7 +1,8 @@
 <form [formGroup]="roomDetailsForm" (ngSubmit)="onSubmit()">
   <div>
-    <label for="firstName">First Name:</label>
+    <label for="firstName">{{'FIRST_NAME'|translate}}</label>
     <input id="firstName" formControlName="firstName"
+    placeholder="{{'FIRST_NAME'|translate}}"
            [ngClass]="{
              'is-invalid': (submitted || f['firstName'].touched) && f['firstName'].errors,
              'is-valid': (submitted || f['firstName'].touched) && !f['firstName'].errors
@@ -15,6 +16,7 @@
   <div>
     <label for="lastName">Last Name:</label>
     <input id="lastName" formControlName="lastName"
+    placeholder="{{'LAST_NAME'|translate}}"
            [ngClass]="{
              'is-invalid': (submitted || f['lastName'].touched) && f['lastName'].errors,
              'is-valid': (submitted || f['lastName'].touched) && !f['lastName'].errors
@@ -28,6 +30,7 @@
   <div>
     <label for="email">Email:</label>
     <input id="email" formControlName="email"
+    placeholder="{{'EMAIL'| translate}}"
            [ngClass]="{
              'is-invalid': (submitted || f['email'].touched) && f['email'].errors,
              'is-valid': (submitted || f['email'].touched) && !f['email'].errors
@@ -41,6 +44,7 @@
   <div>
     <label for="nic">NIC:</label>
     <input id="nic" formControlName="nic"
+    placeholder="{{'NIC'|translate}}"
            [ngClass]="{
              'is-invalid': (submitted || f['nic'].touched) && f['nic'].errors,
              'is-valid': (submitted || f['nic'].touched) && !f['nic'].errors
@@ -54,6 +58,7 @@
   <div>
     <label for="numOfDays">Number of Days:</label>
     <input id="numOfDays" formControlName="numOfDays"
+    placeholder="{{'NUMOFDAYS'|translate}}"
            [ngClass]="{
              'is-invalid': (submitted || f['numOfDays'].touched) && f['numOfDays'].errors,
              'is-valid': (submitted || f['numOfDays'].touched) && !f['numOfDays'].errors
@@ -63,5 +68,5 @@
       <div *ngIf="f['numOfDays'].errors['pattern']">Number of Days must be 1-2 digits</div>
     </div>
   </div>
-  <button type="submit" [disabled]="!roomDetailsForm.valid">Submit</button>
+  <button type="submit" [disabled]="!roomDetailsForm.valid">{{'ADDROOM_BTN'| translate}}</button>
 </form>
