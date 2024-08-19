@@ -1,7 +1,19 @@
-<div *ngIf="ph>0">
-  <div *ngFor="let photo of photos" class="photo-item">
-    <img [src]="photo.urls.regular" alt="Photo">
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div *ngIf="!isLoading && photos">
+  <div *ngIf="ph>0">
+    <div *ngFor="let photo of photos" class="photo-item">
+      <img [src]="photo.urls.regular" alt="Photo">
+    </div>
   </div>
 </div>
+<div *ngIf="!isLoading && errorMessage">
+  <h1>Error</h1>
+  <p>{{ errorMessage }}</p>
+</div>
+
+
+
 
 

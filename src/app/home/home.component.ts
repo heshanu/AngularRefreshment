@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
  
   newsData: newsDataInterface[] = [];
 
-  constructor() { }
   
   searchOptionsList:User[]=[
        {name:'Hikkaduwa'},{name:'Weligama'},{name:'Trinco'}
