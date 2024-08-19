@@ -15,7 +15,8 @@ export class RoomsListComponent {
   roomsList: RoomInterface[] = [];
 
   constructor(private roomService: RoomService) { }
-
+  errorMessage!: string;
+  isLoading: boolean = true;
   ngOnInit(): void {
     this.getRoomData();
   }
@@ -34,7 +35,16 @@ export class RoomsListComponent {
   };
 
   public getRoomData(): void {
-    this.roomService.getPhotos().subscribe(this.roomObserver);
+    this.isLoading = true;
+    this.roomService.getPhotos().subscribe((data)=>{
+      this.roomObserver.next(data);
+      this.isLoading = false;
+    },
+    error => {
+      console.error('Error fetching photos:', error);
+      this.errorMessage = error;
+    }
+    );
   }
 
   selectRoom(room:RoomInterface): void {
