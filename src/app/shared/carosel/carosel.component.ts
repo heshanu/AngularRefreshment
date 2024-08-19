@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from '../../service/unsplash.service';
 import { SearchbarComponentShared } from '../searchbar/searchbar.component';
-import { SpinnerService } from '../../service/spinner.service';
 
 @Component({
   selector: 'app-carosel',
@@ -12,7 +11,7 @@ export class CaroselComponent implements OnInit {
   photos: any[] = [];
   ph:number=0;
   
-  constructor(private unsplashService: UnsplashService,private spinner:SpinnerService) {}
+  constructor(private unsplashService: UnsplashService) {}
   errorMessage!: string;
   isLoading: boolean = true;
 
