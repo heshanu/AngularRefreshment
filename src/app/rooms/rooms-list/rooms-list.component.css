@@ -71,3 +71,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+mat-spinner {
+  display: block;
+  margin: 50px auto;
+}

@@ -1,4 +1,7 @@
-<div class="card-container">
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="card-container" *ngIf="!isLoading && roomsList">
   <mat-card appearance="outlined" *ngFor="let i of roomsList" class="room-card">
     <mat-card-header>
       <mat-card-title class="card-title">{{i.title | uppercase}}</mat-card-title>
@@ -11,3 +14,9 @@
     </mat-card-actions>
   </mat-card>
 </div>
+
+<div *ngIf="!isLoading && errorMessage">
+  <h1>Error</h1>
+  <p>{{ errorMessage }}</p>
+</div>
+
