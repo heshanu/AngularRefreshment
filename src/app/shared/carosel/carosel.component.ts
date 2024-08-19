@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from '../../service/unsplash.service';
 import { SearchbarComponentShared } from '../searchbar/searchbar.component';
+import { SpinnerService } from '../../service/spinner.service';
 
 @Component({
   selector: 'app-carosel',
@@ -11,14 +12,17 @@ export class CaroselComponent implements OnInit {
   photos: any[] = [];
   ph:number=0;
   
-  constructor(private unsplashService: UnsplashService) {}
+  constructor(private unsplashService: UnsplashService,private spinner:SpinnerService) {}
+  errorMessage!: string;
+  isLoading: boolean = true;
 
   ngOnInit() {
-    this.fetchPhotos('Luxury Hotels');
+  //  this.fetchPhotos('Luxury Hotels');
     this.ph=SearchbarComponentShared.sharedSearchList().length;
   }
 
   fetchPhotos(query: string) {
+    this.isLoading = true;
     this.unsplashService.searchPhotos(query).subscribe(
       response => {
         this.photos = response.response.results;
@@ -27,6 +31,7 @@ export class CaroselComponent implements OnInit {
         console.error('Error fetching photos:', error);
       }
     );
+    this.isLoading = false;
   }
 
   

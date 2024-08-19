@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/interfaces/userInterface';
+import { SpinnerService } from '../service/spinner.service';
 
 interface newsDataInterface {
   location?: string;
@@ -23,7 +24,6 @@ export class HomeComponent implements OnInit {
  
   newsData: newsDataInterface[] = [];
 
-  constructor() { }
   
   searchOptionsList:User[]=[
        {name:'Hikkaduwa'},{name:'Weligama'},{name:'Trinco'}

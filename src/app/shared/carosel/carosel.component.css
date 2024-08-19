@@ -81,3 +81,8 @@
   border-width: 5px;
   display:inline-block
 }
+
+mat-spinner {
+  display: block;
+  margin: 50px auto;
+}

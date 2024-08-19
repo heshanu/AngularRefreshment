@@ -12,6 +12,8 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
     imports: [
@@ -27,7 +29,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatOptionModule,
         MatAutocompleteModule,
         MatPaginatorModule ,
-        MatSnackBarModule
+        MatSnackBarModule,MatProgressSpinnerModule
     ],
     exports: [
         MatToolbarModule,
@@ -42,7 +44,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatOptionModule,
         MatAutocompleteModule,
         MatPaginatorModule,
-        MatSnackBarModule
+        MatSnackBarModule,MatProgressSpinnerModule
     ]
 })
 export class MaterialModule { }
