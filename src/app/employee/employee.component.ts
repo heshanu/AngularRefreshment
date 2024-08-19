@@ -11,6 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class EmployeeComponent implements OnInit, AfterViewInit {
 
+  errorMessage!: string;
+  isLoading: boolean = true;
   employeeList: EmployeeInterface[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -30,13 +32,17 @@ export class EmployeeComponent implements OnInit, AfterViewInit {
   }
 
   public getAllEmployees() {
+    this.isLoading = true;
     this.employeeService.getEmployees()
       .subscribe((data: EmployeeInterface[]) => {
         this.employeeList = data;
         this.dataSource.data = this.employeeList;
+        this.isLoading = false;
         console.log('Fetched data:', this.employeeList); // Debugging line
       }, error => {
-        console.error('Error fetching employees:', error); // Debugging line
+        console.error('Error fetching employees:', error);
+        this.errorMessage=error; // Debugging line
       });
+      this.isLoading = false;
   }
 }

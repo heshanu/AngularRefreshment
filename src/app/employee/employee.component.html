@@ -1,3 +1,11 @@
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading && errorMessage">
+  <h1>Error</h1>
+  <p>{{ errorMessage }}</p>
+</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
