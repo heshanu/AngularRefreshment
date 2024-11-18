@@ -38,9 +38,14 @@ import { TranslationModule } from './translation.module';
 import { LanguageselectorComponent } from './shared/language/languageselector/languageselector.component';
 import { FooterComponent } from './shared/footer/footer.component';
 //import { PrimeModuleNgModule } from './primeNg.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { reducer } from './shared/auth/state/auth.reducer';
+import { AuthEffects } from './shared/auth/state/auth.effects';
 
 
-@NgModule({ declarations: [
+@NgModule({ 
+    declarations: [
         AppComponent,
         HomeComponent,
         RoomsComponent,
@@ -72,8 +77,11 @@ import { FooterComponent } from './shared/footer/footer.component';
     MatListModule, MaterialModule,
     // PrimeModuleNgModule,
     NgIconModule,
-    PaginationComponent,TranslationModule 
-]
+    PaginationComponent,
+    TranslationModule,
+    StoreModule.forRoot({ auth: reducer }),
+    EffectsModule.forRoot([AuthEffects]), 
+    ]
     ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
         {

@@ -17,7 +17,7 @@ const routes: Routes = [
     path:'rooms',component:RoomsComponent,canActivate:[AuthGuard]
   },
   {
-    path:'home',component:HomeComponent
+    path:'home',component:HomeComponent,canActivate:[AuthGuard]
   },
   {
     path:'employee',component:EmployeeComponent,canActivate:[AuthGuard]
@@ -26,7 +26,7 @@ const routes: Routes = [
     path:'rooms/:id',component:RoomsBookingComponent,canActivate:[AuthGuard]
   },
   {
-    path:'rooms/add/addRoom',component:RoomAddComponent ,canActivate:[AuthGuard]
+    path:'rooms/add/addRoom',component:RoomAddComponent,canActivate:[AuthGuard]
   },
 
   //lazy loading
