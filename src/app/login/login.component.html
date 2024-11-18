@@ -1,8 +1,13 @@
-<mat-card>
+<!-- auth.component.html -->
+<div *ngIf="isAuthenticated$ | async; else notAuthenticated">
+  <h2>Welcome, {{ (user$ | async)?.name }}</h2>
+  <app-home/>
+</div>
+<ng-template #notAuthenticated>
+  <mat-card>
     <mat-card-content>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <h2>{{'LOGIN'| translate}}</h2>
-       
         <mat-error *ngIf="!loginValid">
          {{'LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG'|translate}}
         </mat-error>
@@ -20,7 +25,11 @@
           </mat-error>
         </mat-form-field>
         <button mat-raised-button color="primary" 
-        [disabled]="!loginForm.form.valid">{{'LOGIN_BTN'| translate }}</button>
+        [disabled]="!loginForm.form.valid" (click)="login(username, password)">
+        {{'LOGIN_BTN'| translate }}</button>
       </form>
     </mat-card-content>
   </mat-card>
+</ng-template>
+
+
