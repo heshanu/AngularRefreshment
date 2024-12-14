@@ -42,6 +42,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducer } from './shared/auth/state/auth.reducer';
 import { AuthEffects } from './shared/auth/state/auth.effects';
+import { BillingService } from './service/billing.service';
 
 
 @NgModule({ 
@@ -84,6 +85,7 @@ import { AuthEffects } from './shared/auth/state/auth.effects';
     ]
     ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
+        BillingService,
         {
             provide: testInterceptor,
             useValue: HTTP_INTERCEPTORS,
