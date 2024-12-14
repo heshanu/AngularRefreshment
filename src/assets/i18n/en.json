@@ -15,6 +15,11 @@
      "NUMOFDAYS":"Number of days",
      "EMAIL":"Email",
      "ADDROOM_BTN":"SUBMIT",
-     "BOOK_NOW":"Book Now"
+     "BOOK_NOW":"Book Now",
+    "CUSTOMER_ID":"Id",
+    "CUSTOMER_NAME":"Customer Name",
+    "CUSTOMER_EMAIL":"Email",
+    "CUSTOMER_POSITION":"Position",
+    "CUSTOMER_DEPARTMENT":"Department"
 }
   
