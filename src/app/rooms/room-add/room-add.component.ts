@@ -2,6 +2,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { room } from '../../shared/interface/room';
 import { BackendService } from '../../service/backend.service';
+import { BillingService } from '../../service/billing.service';
 
 @Component({
   selector: 'app-room-add',
@@ -18,7 +19,9 @@ export class RoomAddComponent implements OnInit {
     return this.roomDetailsForm.controls;
   }
 
-  constructor(private formBuilder: FormBuilder,private backendService:BackendService) { }
+  constructor(private formBuilder: FormBuilder,private backendService:BackendService,
+    private billingService:BillingService
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -56,6 +59,10 @@ export class RoomAddComponent implements OnInit {
 
       this.backendService.createRoom(this.roomDetailsForm.value).subscribe(response => {
         console.log('Room is created successfully', response);
+      });
+
+      this.billingService.submitBillingInfo(this.roomDetailsForm.value).subscribe(response => {
+        console.log('Billing info submitted successfully', response);
       });
 
       setTimeout(() => {
