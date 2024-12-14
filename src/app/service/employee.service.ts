@@ -8,7 +8,7 @@ import { EmployeeInterface } from '../shared/interfaces/employeeInterface';
 })
 export class EmployeeService {
 
-  private apiUrl = 'http://localhost:3000/employees'; 
+  private apiUrl = 'http://localhost:3001/employees'; 
 
   constructor(private http: HttpClient) {}
 

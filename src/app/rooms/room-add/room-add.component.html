@@ -70,3 +70,5 @@
   </div>
   <button type="submit" [disabled]="!roomDetailsForm.valid">{{'ADDROOM_BTN'| translate}}</button>
 </form>
+
+{{roomDetailsForm.value|json}}

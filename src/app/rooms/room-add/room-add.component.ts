@@ -1,6 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { room } from '../../shared/interface/room';
+import { BackendService } from '../../service/backend.service';
 
 @Component({
   selector: 'app-room-add',
@@ -17,9 +18,7 @@ export class RoomAddComponent implements OnInit {
     return this.roomDetailsForm.controls;
   }
 
-  roomModel: room = {};
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private backendService:BackendService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -54,8 +53,12 @@ export class RoomAddComponent implements OnInit {
     this.submitted = true;
     if (this.roomDetailsForm.valid) {
       this.isLoading = true;
+
+      this.backendService.createRoom(this.roomDetailsForm.value).subscribe(response => {
+        console.log('Room is created successfully', response);
+      });
+
       setTimeout(() => {
-        console.log('Response'+this.roomDetailsForm.valid);
         this.isLoading = false;
         this.clearForm();
       }, 1000);
