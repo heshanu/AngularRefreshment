@@ -3,5 +3,6 @@
         <div class="room-title">{{roomDetail.title}}</div>
     </div>
     <img [src]="roomDetail.thumbnailUrl" class="room-image" alt="Room Thumbnail"/>
-    <button (click)="bookRoom(roomDetail.id)"  (click)="openDialog('200ms', '200ms')" class="book-button">Book Now</button>
+    <button (click)="bookRoom(roomDetail.id)"  (click)="openDialog('200ms', '200ms')" 
+    class="book-button">{{"BOOK_NOW"|translate}}</button>
 </div>
