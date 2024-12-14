@@ -6,6 +6,7 @@ import { AuthState } from '../shared/auth/state/auth.state';
 import { Store } from '@ngrx/store';
 import {selectIsAuthenticated,selectUser,selectError} from '../shared/auth/state/auth.selector'
 import * as AuthActions from "../shared/auth/state/auth.action";
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,11 @@ import * as AuthActions from "../shared/auth/state/auth.action";
 })
 export class LoginComponent implements OnInit, OnDestroy{
   public loginValid = true;
-  public username = '';
-  public password = '';
+  public username:string = '';
+  public password:string = '';
+
+  public localStorageStoredUsername!:string|null;
+  public localStorageStoredPassword!:string|null;
 
   private _destroySub$ = new Subject<void>();
   private readonly returnUrl: string;
@@ -28,53 +32,68 @@ export class LoginComponent implements OnInit, OnDestroy{
     private _route: ActivatedRoute,
     private _router: Router,
     private authService:AuthService,
-    private store: Store<AuthState>
+    private store: Store<AuthState>,
+    private localStorageService:StorageService
   ) {
     this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/game';
+    this.localStorageStoredUsername=this.getUserNameFromLocalStorage();
+    this.localStorageStoredPassword=this.getUserPasswordFromLocalStorage();
     this.isAuthenticated$ = this.authService.isAuthenticated();
     this.user$ = this.store.select(selectUser);
     this.error$ = this.store.select(selectError);
   }
 
   ngOnInit(): void {
-    this.isAuthenticated$.subscribe(isAuthenticated => {
+      this.isAuthenticated$.subscribe(isAuthenticated => {
       console.log('Is Authenticated:', isAuthenticated);
-    });
+      });
 
-    this.user$.subscribe(user => {
+      this.user$.subscribe(user => {
       console.log('User:', user);
-    });
+      });
 
-    this.error$.subscribe(error => {
+      this.error$.subscribe(error => {
       console.log('Error:', error);
-    });
-  }
+      });
+    }
 
   public ngOnDestroy(): void {
     this._destroySub$.next();
   }
 
+  public saveToken(): void {
+     this.localStorageService.setLocalStorageUserName(this.username);
+     this.localStorageService.setLocalStoragePassword(this.password);
+   }
+
   public onSubmit(): void {
-    this.loginValid = true;
-    if (this.username === 'h@gmail.com' && this.password === 'admin123456789') {
-      this._router.navigate(['/home']);
+    console.log("login onsubmit ");
+    if (this.loginValid) {
+      console.log("login onsubmit ");
       this.saveToken();
+      this._router.navigate(['/home']);
     } else {
       this.loginValid = false;
     }
   }
 
-  public saveToken(): void {
-    localStorage.setItem('username',this.username);
-    localStorage.setItem('password',this.password);
-  }
-
   public login(email: string, password: string): void {
     this.store.dispatch(AuthActions.login({ email, password }));
+    this.onSubmit();
   }
 
   public logout(): void {
     this.store.dispatch(AuthActions.logout());
   }
   
+  public getUserNameFromLocalStorage():string|null{
+    console.log(this.localStorageService.getLocalStorageUserName());
+    return this.localStorageService.getLocalStorageUserName(); 
+  }
+
+  public getUserPasswordFromLocalStorage():string|null{
+    console.log(this.localStorageService.getLocalStoragePassword());
+    return this.localStorageService.getLocalStoragePassword();
+  }
 }
+

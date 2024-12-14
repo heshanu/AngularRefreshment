@@ -21,5 +21,6 @@ export class AppNavComponent {
 
    logOut():void{
       this.authService.logout();
+     localStorage.clear();
     }
 }
