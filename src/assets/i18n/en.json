@@ -14,6 +14,7 @@
      "NIC":"NIC/Passport number",
      "NUMOFDAYS":"Number of days",
      "EMAIL":"Email",
-     "ADDROOM_BTN":"SUBMIT"
+     "ADDROOM_BTN":"SUBMIT",
+     "BOOK_NOW":"Book Now"
 }
   
