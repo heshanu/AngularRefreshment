@@ -14,6 +14,11 @@
     "NUMOFDAYS":"Anzahl Tage",
     "EMAIL":"E-Mail",
     "ADDROOM_BTN":"EINREICHEN",
-         "BOOK_NOW":"Buchen Sie jetzt"
+         "BOOK_NOW":"Buchen Sie jetzt",
+         "CUSTOMER_ID":"Ausweis",
+         "CUSTOMER_NAME":"Name",
+         "CUSTOMER_EMAIL":"E-Mail",
+         "CUSTOMER_POSITION":"Position",
+         "CUSTOMER_DEPARTMENT":"Abteilung"
   }
   

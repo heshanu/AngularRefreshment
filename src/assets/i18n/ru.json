@@ -14,7 +14,13 @@
      "NUMOFDAYS":"количество дней",
      "EMAIL":"электронная почта",
     "ADDROOM_BTN":"ПРЕДСТАВЛЯТЬ НА РАССМОТРЕНИЕ",
-      "BOOK_NOW":"Забронировать сейчас"
+      "BOOK_NOW":"Забронировать сейчас",
+      "CUSTOMER_ID":"идентификатор",
+      "CUSTOMER_NAME":"имя",
+      "CUSTOMER_EMAIL":"электронная почта",
+      "CUSTOMER_POSITION":"Позиция",
+      "CUSTOMER_DEPARTMENT":"Отделение"
+
 
 
   }

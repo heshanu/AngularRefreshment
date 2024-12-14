@@ -12,27 +12,27 @@
 
     
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <th mat-header-cell *matHeaderCellDef>{{"CUSTOMER_ID"|translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef>{{"CUSTOMER_NAME"|translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
     
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <th mat-header-cell *matHeaderCellDef> {{"CUSTOMER_EMAIL"|translate}} </th>
       <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
    
     <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> Position </th>
+      <th mat-header-cell *matHeaderCellDef>{{"CUSTOMER_POSITION"|translate}} </th>
       <td mat-cell *matCellDef="let element"> {{element.position}} </td>
     </ng-container>
 
     <ng-container matColumnDef="department">
-      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <th mat-header-cell *matHeaderCellDef>{{"CUSTOMER_POSITION"|translate}}</th>
       <td mat-cell *matCellDef="let element"> {{element.department}} </td>
     </ng-container>
 
