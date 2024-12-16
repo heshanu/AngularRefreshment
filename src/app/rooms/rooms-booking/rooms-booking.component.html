@@ -6,3 +6,10 @@
     <button (click)="bookRoom(roomDetail.id)"  (click)="openDialog('200ms', '200ms')" 
     class="book-button">{{"BOOK_NOW"|translate}}</button>
 </div>
+
+<div class="chart-container m-auto">
+    <div class="chart-column">
+      <app-chart [Highcharts]="Highcharts" [chartOptions]="chartOptionsExpense"></app-chart>
+    </div>
+</div>
+  

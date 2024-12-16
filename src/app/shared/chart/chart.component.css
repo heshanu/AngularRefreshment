@@ -1,0 +1,31 @@
+/* Ensure the chart container takes the full width of its parent */
+.chart-container {
+    width: 50%;
+    height: 400px; /* Adjust the height as needed */
+    display: block;
+    margin: 0 auto; /* Center the chart horizontally */
+    padding: 20px; /* Add some padding around the chart */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  /* Style for the chart itself */
+  highcharts-chart {
+    width: 50%;
+    height: 100%;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .chart-container {
+      height: 300px; /* Adjust the height for smaller screens */
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chart-container {
+      height: 250px; /* Adjust the height for very small screens */
+      padding: 5px; /* Reduce padding for very small screens */
+    }
+  }
+  
