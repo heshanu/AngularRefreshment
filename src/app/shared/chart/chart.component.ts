@@ -8,25 +8,6 @@ import * as Highcharts from 'highcharts';
 })
 export class ChartComponent implements OnInit{
   @Input() Highcharts = Highcharts;
- // @Input() Highcharts = Highcharts; // required
-  // @Input() chartOptions:any= {
-  //   chart: {
-  //     type: 'line'
-  //   },
-  //   title: {
-  //     text: 'Line Chart Example'
-  //   },
-  //   series: [
-  //     {
-  //       name: 'Series A',
-  //       data: [1, 2, 3, 4, 5]
-  //     },
-  //     {
-  //       name: 'Series B',
-  //       data: [5, 4, 3, 2, 1]
-  //     }
-  //   ]
-  // };
   @Input() chartOptions:any;
   constructor() { }
 
