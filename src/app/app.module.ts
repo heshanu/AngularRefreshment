@@ -87,7 +87,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     StoreModule.forRoot({ auth: reducer }),
     EffectsModule.forRoot([AuthEffects]),
     BrowserAnimationsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),ReactiveFormsModule
     ]
     ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,

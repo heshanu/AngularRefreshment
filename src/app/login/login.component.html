@@ -6,27 +6,51 @@
 <ng-template #notAuthenticated>
   <mat-card>
     <mat-card-content>
-      <form #loginForm="ngForm">
-        <h2>{{'LOGIN'| translate}}</h2>
-        <mat-error *ngIf="!loginValid">
-         {{'LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG'|translate}}
-        </mat-error>
-        <mat-form-field>
-            <input matInput 
-            placeholder="{{'EMAIL_FIELD_PLACEHOLDER'|translate}}" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [(ngModel)]="username" name="username" required>
-          <mat-error>
-            {{'EMAIL_ERROR'| translate}}
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="password" placeholder="{{'PASSWORD_FIELD_PLACEHOLDER'| translate}}" [(ngModel)]="password" name="password" required>
-          <mat-error>
-           {{'PASSWORD_ERROR'|translate}}
-          </mat-error>
-        </mat-form-field>
-        <button mat-raised-button color="primary" 
-        [disabled]="!loginForm.form.valid" (click)="login(username, password)">
-        {{'LOGIN_BTN'| translate }}</button>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit() ">
+        {{ 'LOGIN' | translate }}
+        <div>
+          <input
+           type="email" id="email" formControlName="email" name="email" 
+           placeholder="{{ 'EMAIL_FIELD_PLACEHOLDER' | translate }}"
+           formControlName="email"
+          type="text"
+          class="form-control"
+          [ngClass]="{
+              'is-invalid': submitted && f['email'].errors,
+                  'is-valid':  !f['email'].errors
+               }"
+           >
+           <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+            <div *ngIf="f['email'].errors['required']">Please Enter Email</div>
+            <div *ngIf="f['email'].errors['email']">
+              {{'EMAIL_ERROR'| translate}}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <input
+           type="password" id="password" name="password" formControlName="password" 
+           placeholder="{{ 'PASSWORD_FIELD_PLACEHOLDER' | translate }}"
+           formControlName="password"
+          type="password"
+          class="form-control"
+          [ngClass]="{
+              'is-invalid': submitted && f['password'].errors,
+                  'is-valid':  !f['password'].errors
+               }"
+           >
+           <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+            <div *ngIf="f['password'].errors['required']">Please Enter Password</div>
+            <div *ngIf="f['password'].errors['password']">
+              {{'PASSWORD_ERROR'|translate}}
+            </div>
+          </div>
+        </div>  
+
+        <button type="submit" mat-raised-button color="primary" 
+        [disabled]="loginForm.invalid"
+>{{'LOGIN'|translate}}</button>
       </form>
     </mat-card-content>
   </mat-card>

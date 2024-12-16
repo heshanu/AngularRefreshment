@@ -2,12 +2,13 @@
     
     "HELLO_WORLD": "Hello, World!",
     "LOGIN":"LOGIN",
+
     "LOGIN_FORM_LOGIN_ALL_CREDINTIAL_WRONG":"The username and password were not recognized",
     "EMAIL_ERROR":" Please provide a valid email address",
     "PASSWORD_ERROR":"Please provide a valid password",
     "LOGIN_BTN":"LOGIN",
     "PASSWORD_FIELD_PLACEHOLDER":"Password Here",
-     "EMAIL_FIELD_PLACEHOLDER":"Email Here",
+    "EMAIL_FIELD_PLACEHOLDER":"Email Here",
 
      "FIRST_NAME":"First Name",
      "LAST_NAME":"Last Name",
