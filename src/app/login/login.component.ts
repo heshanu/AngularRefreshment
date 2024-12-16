@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import {selectIsAuthenticated,selectUser,selectError} from '../shared/auth/state/auth.selector'
 import * as AuthActions from "../shared/auth/state/auth.action";
 import { StorageService } from '../storage.service';
+import {SweetNotificationService} from '.././service/sweet-notification.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit, OnDestroy{
     private _router: Router,
     private authService:AuthService,
     private store: Store<AuthState>,
-    private localStorageService:StorageService
+    private localStorageService:StorageService,
+    private sweetAlert: SweetNotificationService
   ) {
     this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/game';
     this.localStorageStoredUsername=this.getUserNameFromLocalStorage();
@@ -71,9 +73,11 @@ export class LoginComponent implements OnInit, OnDestroy{
     if (this.loginValid) {
       console.log("login onsubmit ");
       this.saveToken();
+      this.sweetAlert.success('Success', 'Login Successfully');
       this._router.navigate(['/home']);
     } else {
       this.loginValid = false;
+      this.sweetAlert.error('Error', 'This is an error message');
     }
   }
 
