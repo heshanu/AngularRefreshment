@@ -39,7 +39,7 @@ export class SweetNotificationService {
     });
   }
 
-  confirm(title: string, text: string, confirmButtonText: string = 'Yes', cancelButtonText: string = 'Yes') {
+  confirm(title: string, text: string, confirmButtonText: string = 'Continue', cancelButtonText: string = 'No') {
     return Swal.fire({
       title: title,
       text: text,
