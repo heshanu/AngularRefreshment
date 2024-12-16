@@ -7,3 +7,7 @@ mat-card {
   mat-form-field {
     display: block;
   }
+
+  input{
+    margin-top: 20px;margin-bottom: 20px;
+  }
