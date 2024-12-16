@@ -25,6 +25,8 @@
     "@ng-icons/core": "^29.2.2",
     "@ng-icons/feather-icons": "^29.2.2",
     "@ng-icons/heroicons": "^29.2.2",
+    "@ngrx/effects": "^18.1.1",
+    "@ngrx/store": "^18.1.1",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@okta/okta-auth-js": "^7.7.0",
