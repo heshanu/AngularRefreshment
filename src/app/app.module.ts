@@ -45,6 +45,7 @@ import { AuthEffects } from './shared/auth/state/auth.effects';
 import { BillingService } from './service/billing.service';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartComponent } from './shared/chart/chart.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({ 
     declarations: [
@@ -84,7 +85,9 @@ import { ChartComponent } from './shared/chart/chart.component';
     PaginationComponent,
     TranslationModule,
     StoreModule.forRoot({ auth: reducer }),
-    EffectsModule.forRoot([AuthEffects]), 
+    EffectsModule.forRoot([AuthEffects]),
+    BrowserAnimationsModule,
+    SweetAlert2Module.forRoot()
     ]
     ,
     providers: [EvenPipePipe, Usd2lkrsPipe, AuthService, NewsService, AuthGuard,
