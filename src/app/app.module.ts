@@ -43,7 +43,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducer } from './shared/auth/state/auth.reducer';
 import { AuthEffects } from './shared/auth/state/auth.effects';
 import { BillingService } from './service/billing.service';
-
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ChartComponent } from './shared/chart/chart.component';
 
 @NgModule({ 
     declarations: [
@@ -64,7 +65,8 @@ import { BillingService } from './service/billing.service';
         SearchbarComponent,
         CaroselComponent,
         LanguageselectorComponent,
-        FooterComponent 
+        FooterComponent,
+        ChartComponent
           
     ],
     bootstrap: [AppComponent],
@@ -77,6 +79,7 @@ import { BillingService } from './service/billing.service';
     MatSidenavModule, MatIconModule,
     MatListModule, MaterialModule,
     // PrimeModuleNgModule,
+    HighchartsChartModule,
     NgIconModule,
     PaginationComponent,
     TranslationModule,
